@@ -48,12 +48,12 @@ namespace NaPo
         private void Button_Click_3(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("Cena biletu za każdy wynajętny pojazd:" +
-                "\n Bus : 2,70zł/km" +
-                "\n Bus VIP*: 5,20zł/km" +
-                "\n Autobus: 10,00zł/km" +
-                "\n Autobus VIP*: 18,00zł/km" +
-                "\n Pojazd osobowy: 1,50zł/km" +
-                "\n Limuzyna: 7,00zł/km" +
+                "\n Bus (max 8 osób): 2,70zł/km" +
+                "\n Bus VIP*(max 6 osób): 5,20zł/km" +
+                "\n Autobus (max 40 osób): 10,00zł/km" +
+                "\n Autobus VIP*(max 30 osób): 18,00zł/km" +
+                "\n Pojazd osobowy(max 3 osoby): 1,50zł/km" +
+                "\n Limuzyna(max 8 osób): 7,00zł/km" +
                 "\n\n\nZniżki:" +
                 "\nBilet dla dzieci: -50%" +
                 "\nBilet szkolny/studencki: -25%:" +

@@ -14,3 +14,19 @@ D:\Programy\Projekty\Projekt na PO\NaPo\obj\Debug\NaPo.exe
 D:\Programy\Projekty\Projekt na PO\NaPo\obj\Debug\NaPo.pdb
 D:\Programy\Projekty\Projekt na PO\NaPo\obj\Debug\StronaAdmina.g.cs
 D:\Programy\Projekty\Projekt na PO\NaPo\obj\Debug\StronaAdmina.baml
+C:\Users\Adam\Desktop\ProjektNaPO\NaPo\bin\Debug\NaPo.exe.config
+C:\Users\Adam\Desktop\ProjektNaPO\NaPo\bin\Debug\NaPo.exe
+C:\Users\Adam\Desktop\ProjektNaPO\NaPo\bin\Debug\NaPo.pdb
+C:\Users\Adam\Desktop\ProjektNaPO\NaPo\obj\Debug\NaPo.csprojAssemblyReference.cache
+C:\Users\Adam\Desktop\ProjektNaPO\NaPo\obj\Debug\MainWindow.g.cs
+C:\Users\Adam\Desktop\ProjektNaPO\NaPo\obj\Debug\StronaAdmina.g.cs
+C:\Users\Adam\Desktop\ProjektNaPO\NaPo\obj\Debug\App.g.cs
+C:\Users\Adam\Desktop\ProjektNaPO\NaPo\obj\Debug\NaPo_MarkupCompile.cache
+C:\Users\Adam\Desktop\ProjektNaPO\NaPo\obj\Debug\NaPo_MarkupCompile.lref
+C:\Users\Adam\Desktop\ProjektNaPO\NaPo\obj\Debug\MainWindow.baml
+C:\Users\Adam\Desktop\ProjektNaPO\NaPo\obj\Debug\StronaAdmina.baml
+C:\Users\Adam\Desktop\ProjektNaPO\NaPo\obj\Debug\NaPo.g.resources
+C:\Users\Adam\Desktop\ProjektNaPO\NaPo\obj\Debug\NaPo.Properties.Resources.resources
+C:\Users\Adam\Desktop\ProjektNaPO\NaPo\obj\Debug\NaPo.csproj.GenerateResource.cache
+C:\Users\Adam\Desktop\ProjektNaPO\NaPo\obj\Debug\NaPo.exe
+C:\Users\Adam\Desktop\ProjektNaPO\NaPo\obj\Debug\NaPo.pdb
