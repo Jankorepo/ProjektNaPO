@@ -16,18 +16,13 @@ using System.Windows.Shapes;
 namespace NaPo
 {
     /// <summary>
-    /// Logika interakcji dla klasy BiletWieloosobowy.xaml
+    /// Logika interakcji dla klasy BiletJednoosobowy.xaml
     /// </summary>
-    public partial class BiletWieloosobowy : Page
+    public partial class BiletJednoosobowy : Page
     {
-        public BiletWieloosobowy()
+        public BiletJednoosobowy()
         {
             InitializeComponent();
-        }
-
-        private void PoleTextowe10_Copy1_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
         }
     }
 }

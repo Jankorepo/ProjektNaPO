@@ -32,3 +32,5 @@ C:\Users\Adam\Desktop\ProjektNaPO\NaPo\obj\Debug\NaPo.exe
 C:\Users\Adam\Desktop\ProjektNaPO\NaPo\obj\Debug\NaPo.pdb
 C:\Users\Adam\Desktop\ProjektNaPO\NaPo\obj\Debug\BiletWieloosobowy.g.cs
 C:\Users\Adam\Desktop\ProjektNaPO\NaPo\obj\Debug\BiletWieloosobowy.baml
+C:\Users\Adam\Desktop\ProjektNaPO\NaPo\obj\Debug\BiletJednoosobowy.g.cs
+C:\Users\Adam\Desktop\ProjektNaPO\NaPo\obj\Debug\BiletJednoosobowy.baml

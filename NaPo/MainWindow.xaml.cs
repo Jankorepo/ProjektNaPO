@@ -37,12 +37,12 @@ namespace NaPo
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-
+            this.Content = new BiletJednoosobowy();
         }
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-
+            this.Content = new BiletWieloosobowy();
         }
 
         private void Button_Click_3(object sender, RoutedEventArgs e)
@@ -70,7 +70,7 @@ namespace NaPo
             MessageBox.Show("      Nr. telefonu\n999-888-777\n\n      Siedziba firmy:\n" +
                 "Ul.Kościuszki 15/12, 19-123 Warszawa" +
                 "\n\nGodziny otwarcia:\nPoniedziałek-Piątek\n    7.00-21.00\nSobota\n" +
-                "     8.00-15.00\n        " );
+                "    8.00-15.00\n        " );
         }
     }
 }

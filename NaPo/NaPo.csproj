@@ -55,12 +55,19 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="BiletJednoosobowy.xaml.cs">
+      <DependentUpon>BiletJednoosobowy.xaml</DependentUpon>
+    </Compile>
     <Compile Include="BiletWieloosobowy.xaml.cs">
       <DependentUpon>BiletWieloosobowy.xaml</DependentUpon>
     </Compile>
     <Compile Include="StronaAdmina.xaml.cs">
       <DependentUpon>StronaAdmina.xaml</DependentUpon>
     </Compile>
+    <Page Include="BiletJednoosobowy.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="BiletWieloosobowy.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
