@@ -30,3 +30,5 @@ C:\Users\Adam\Desktop\ProjektNaPO\NaPo\obj\Debug\NaPo.Properties.Resources.resou
 C:\Users\Adam\Desktop\ProjektNaPO\NaPo\obj\Debug\NaPo.csproj.GenerateResource.cache
 C:\Users\Adam\Desktop\ProjektNaPO\NaPo\obj\Debug\NaPo.exe
 C:\Users\Adam\Desktop\ProjektNaPO\NaPo\obj\Debug\NaPo.pdb
+C:\Users\Adam\Desktop\ProjektNaPO\NaPo\obj\Debug\BiletWieloosobowy.g.cs
+C:\Users\Adam\Desktop\ProjektNaPO\NaPo\obj\Debug\BiletWieloosobowy.baml
