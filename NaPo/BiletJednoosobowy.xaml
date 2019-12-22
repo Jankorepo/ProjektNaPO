@@ -11,19 +11,19 @@
     <Grid>
         <Button x:Name="Klik1" Content="Kup bilet i drukuj paragon" HorizontalAlignment="Left" Margin="272,352,0,0" VerticalAlignment="Top" Width="271" Height="58" RenderTransformOrigin="0.495,0.519"/>
         <Button Content="Zamknij" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Margin="713,20,0,0" Height="50"/>
-        <TextBox x:Name="TextWybierzPoczątekPodrózy" HorizontalAlignment="Left" Height="22" Margin="37,64,0,0" TextWrapping="Wrap" Text="Wybierz początek podróży" VerticalAlignment="Top" Width="151"/>
-        <TextBox x:Name="PoleTextowe2" HorizontalAlignment="Left" Height="42" Margin="37,154,0,0" TextWrapping="Wrap" Text="Wpisz datę podróży w formacie dd-mm-rrrr" VerticalAlignment="Top" Width="151"/>
-        <TextBox x:Name="PoleTextowe4" HorizontalAlignment="Left" Height="22" Margin="37,214,0,0" TextWrapping="Wrap" Text="Wybierz rodzaj zniżki" VerticalAlignment="Top" Width="151"/>
-        <TextBox x:Name="PoleTextowe6" HorizontalAlignment="Left" Height="22" Margin="37,108,0,0" TextWrapping="Wrap" Text="Wybierz cel podróży" VerticalAlignment="Top" Width="151"/>
-        <TextBox x:Name="PoleTextowe7" HorizontalAlignment="Left" Height="40" Margin="324,10,0,0" TextWrapping="Wrap" Text="Wpisz dane swojej podróży" VerticalAlignment="Top" Width="178"/>
+        <TextBox x:Name="TextWybierzPoczątekPodrózy" IsEnabled="False" HorizontalAlignment="Left" Height="22" Margin="37,64,0,0" TextWrapping="Wrap" Text="Wybierz początek podróży" VerticalAlignment="Top" Width="151"/>
+        <TextBox x:Name="PoleTextowe2" IsEnabled="False" HorizontalAlignment="Left" Height="42" Margin="37,154,0,0" TextWrapping="Wrap" Text="Wpisz datę podróży w formacie dd-mm-rrrr" VerticalAlignment="Top" Width="151"/>
+        <TextBox x:Name="PoleTextowe4" IsEnabled="False" HorizontalAlignment="Left" Height="22" Margin="37,214,0,0" TextWrapping="Wrap" Text="Wybierz rodzaj zniżki" VerticalAlignment="Top" Width="151"/>
+        <TextBox x:Name="PoleTextowe6" IsEnabled="False" HorizontalAlignment="Left" Height="22" Margin="37,108,0,0" TextWrapping="Wrap" Text="Wybierz cel podróży" VerticalAlignment="Top" Width="151"/>
+        <TextBox x:Name="PoleTextowe7" IsEnabled="False" HorizontalAlignment="Left" Height="28" Margin="277,20,0,0" TextWrapping="Wrap" Text="Wpisz dane swojej podróży" VerticalAlignment="Top" Width="227" FontSize="18"/>
         <ComboBox HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Margin="217,64,0,0" Height="22"/>
         <ComboBox HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Margin="217,108,0,0" Height="22"/>
         <ComboBox HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Margin="217,214,0,0" Height="22"/>
-        <DatePicker HorizontalAlignment="Left" VerticalAlignment="Top" Margin="214,154,0,0" Height="42"/>
-        <TextBox x:Name="PoleTextowe11" HorizontalAlignment="Left" Height="22" Margin="37,254,0,0" TextWrapping="Wrap" Text="Podaj imię i nazwisko" VerticalAlignment="Top" Width="350"/>
-        <TextBox x:Name="PoleTextowe12" HorizontalAlignment="Left" Height="22" Margin="37,289,0,0" TextWrapping="Wrap" Text="Podaj numer telefonu" VerticalAlignment="Top" Width="350"/>
-        <ListBox x:Name="ImieINazwisko" HorizontalAlignment="Left" Height="22" VerticalAlignment="Top" Width="100" Margin="409,254,0,0"/>
-        <ListBox x:Name="Telefon" HorizontalAlignment="Left" Height="22" VerticalAlignment="Top" Width="100" Margin="409,289,0,0"/>
+        <DatePicker HorizontalAlignment="Left" VerticalAlignment="Top" Margin="217,154,0,0" Height="42" Width="100"/>
+        <TextBox x:Name="PoleTextowe11" IsEnabled="False" HorizontalAlignment="Left" Height="22" Margin="37,254,0,0" TextWrapping="Wrap" Text="Podaj imię i nazwisko" VerticalAlignment="Top" Width="350"/>
+        <TextBox x:Name="PoleTextowe12" IsEnabled="False" HorizontalAlignment="Left" Height="22" Margin="37,289,0,0" TextWrapping="Wrap" Text="Podaj numer telefonu" VerticalAlignment="Top" Width="350"/>
+        <TextBox HorizontalAlignment="Left" Height="22" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Margin="423,254,0,0"/>
+        <TextBox HorizontalAlignment="Left" Height="22" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Margin="423,289,0,0"/>
 
     </Grid>
 </Page>

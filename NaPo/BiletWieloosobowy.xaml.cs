@@ -29,5 +29,15 @@ namespace NaPo
         {
 
         }
+
+        private void LiczbaOsóbZeZniżkąDziecięcą_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            this.Content = new BiletWieloosobowy();
+        }
     }
 }
