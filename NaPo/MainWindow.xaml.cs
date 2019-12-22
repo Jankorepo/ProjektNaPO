@@ -47,18 +47,17 @@ namespace NaPo
 
         private void Button_Click_3(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Cena biletu za każdy wynajętny pojazd:" +
-                "\n Bus (max 8 osób): 2,70zł/km" +
-                "\n Bus VIP*(max 6 osób): 5,20zł/km" +
-                "\n Autobus (max 40 osób): 10,00zł/km" +
-                "\n Autobus VIP*(max 30 osób): 18,00zł/km" +
-                "\n Pojazd osobowy(max 3 osoby): 1,50zł/km" +
-                "\n Limuzyna(max 8 osób): 7,00zł/km" +
-                "\n\n\nZniżki:" +
-                "\nBilet dla dzieci: -50%" +
-                "\nBilet szkolny/studencki: -25%:" +
-                "\nBilet emeryta/osoby niepełosprawnej: -40%:" +
-                "\n\n *VIP=(wygodniejsze fotele, więcej miejsca)");
+            MessageBox.Show("Cena biletu(do 100km):" +
+                "\n Normalny: 1,60zł/km" +
+                "\n Dziecięcy(do lat 3): 0.40zł/km(-75%)" +
+                "\n Szkolny/studencki: 0,80zł/km(-50%)" +
+                "\n Emerytalny/osoby niepełosprawnej: 1,20zł/km(-25%)" +
+
+                "\n\n Cena biletu(powyżej 100km):"+
+                "\n Normalny: 1,20zł/km" +
+                "\n Dziecięcy(do lat 3): 0,30zł/km(-75%)" +
+                "\n Szkolny/studencki: 0,60zł/km(-50%)" +
+                "\n Emerytalny/osoby niepełosprawnej: 0,80zł/km(-25%)");
         }
 
         private void Button_Click_4(object sender, RoutedEventArgs e)
