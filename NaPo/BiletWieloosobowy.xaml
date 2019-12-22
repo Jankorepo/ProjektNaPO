@@ -7,7 +7,6 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="BiletWieloosobowy">
-
     <Grid>
         <Button x:Name="Klik1" Content="Kup bilet i drukuj paragon" HorizontalAlignment="Left" Margin="275,373,0,0" VerticalAlignment="Top" Width="271" Height="58" RenderTransformOrigin="0.495,0.519"/>
         <Button Content="Zamknij" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Margin="713,20,0,0" Height="50" Click="Button_Click"/>
@@ -30,7 +29,7 @@
         <TextBox HorizontalAlignment="Left" Height="22" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="120" Margin="426,265,0,0"/>
         <TextBox HorizontalAlignment="Left" Height="22" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Margin="426,303,0,0"/>
         <TextBox HorizontalAlignment="Left" Height="22" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Margin="426,346,0,0"/>
-
+        
     </Grid>
 </Page>
 

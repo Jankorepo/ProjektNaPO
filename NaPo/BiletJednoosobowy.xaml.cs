@@ -24,5 +24,18 @@ namespace NaPo
         {
             InitializeComponent();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Window strona = (Window)this.Parent;
+            strona.Close();
+
+            //BiletWieloosobowy p2 = new BiletWieloosobowy();
+            //p2.NavigationService.Navigate(this);
+
+            //Page uri = new BiletWieloosobowy();
+            //this.NavigationService.Navigate(uri);
+
+        }
     }
 }

@@ -24,7 +24,6 @@ namespace NaPo
         {
             InitializeComponent();
         }
-
         private void PoleTextowe10_Copy1_TextChanged(object sender, TextChangedEventArgs e)
         {
 
@@ -37,7 +36,9 @@ namespace NaPo
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            this.Content = new BiletWieloosobowy();
+
         }
+
+
     }
 }
