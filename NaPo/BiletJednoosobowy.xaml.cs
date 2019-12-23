@@ -23,11 +23,24 @@ namespace NaPo
         public BiletJednoosobowy()
         {
             InitializeComponent();
+            Com1.Items.Add("Olsztyn");
+            Com1.Items.Add("Kętrzyn");
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+
+        }
+
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            
+        }
+
+        private void Klik1_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show(Convert.ToString(Com1.Text));
 
         }
     }

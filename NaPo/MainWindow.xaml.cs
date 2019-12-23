@@ -32,12 +32,6 @@ namespace NaPo
             }
         }
 
-        private void Main_Navigated(object sender, NavigationEventArgs e)
-        {
-
-        }
-
-
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
@@ -62,15 +56,21 @@ namespace NaPo
                 "\n Emerytalny/osoby niepełosprawnej: 1,20zł/km(-25%)" +
 
                 "\n\n Cena biletu(powyżej 100km):"+
-                "\n Normalny: 1,20zł/km" +
-                "\n Dziecięcy(do lat 3): 0,30zł/km(-75%)" +
-                "\n Szkolny/studencki: 0,60zł/km(-50%)" +
-                "\n Emerytalny/osoby niepełosprawnej: 0,80zł/km(-25%)");
+                "\n Normalny: 1,00zł/km" +
+                "\n Dziecięcy(do lat 3): 0,25zł/km(-75%)" +
+                "\n Szkolny/studencki: 0,50zł/km(-50%)" +
+                "\n Emerytalny/osoby niepełosprawnej: 0,75zł/km(-25%)"+
+
+                "\n\n Cena biletu(powyżej 500km):" +
+                "\n Normalny: 0,60zł/km" +
+                "\n Dziecięcy(do lat 3): 0.15zł/km(-75%)" +
+                "\n Szkolny/studencki: 0,30zł/km(-50%)" +
+                "\n Emerytalny/osoby niepełosprawnej: 0,45zł/km(-25%)");
         }
 
         private void Button_Click_4(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Jesteśmy firmą bez doświadczenia ale posiadamy flotę busów z lat 80");
+            MessageBox.Show("Jesteśmy firmą bez celu i doświadczenia, a nawet posiadamy flotę busów z lat 60");
         }
 
         private void Button_Click_5(object sender, RoutedEventArgs e)
