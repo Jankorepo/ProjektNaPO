@@ -25,7 +25,11 @@ namespace NaPo
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             if (T1.Text == "password")
-                this.Content = new StronaAdmina();
+            {
+                Hide();
+                new StronaAdmina().ShowDialog();
+                ShowDialog();
+            }
         }
 
         private void Main_Navigated(object sender, NavigationEventArgs e)
@@ -37,12 +41,16 @@ namespace NaPo
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            this.Content = new BiletJednoosobowy();
+            Hide();
+            new BiletJednoosobowy().ShowDialog();
+            ShowDialog();
         }
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-            this.Content = new BiletWieloosobowy();
+            Hide();
+            new BiletWieloosobowy().ShowDialog();
+            ShowDialog();
         }
 
         private void Button_Click_3(object sender, RoutedEventArgs e)
@@ -71,6 +79,11 @@ namespace NaPo
                 "Ul.Kościuszki 15/12, 19-123 Warszawa" +
                 "\n\nGodziny otwarcia:\nPoniedziałek-Piątek\n    7.00-21.00\nSobota\n" +
                 "    8.00-15.00\n        " );
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

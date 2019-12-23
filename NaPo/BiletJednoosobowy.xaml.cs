@@ -18,7 +18,7 @@ namespace NaPo
     /// <summary>
     /// Logika interakcji dla klasy BiletJednoosobowy.xaml
     /// </summary>
-    public partial class BiletJednoosobowy : Page
+    public partial class BiletJednoosobowy : Window
     {
         public BiletJednoosobowy()
         {
@@ -27,14 +27,7 @@ namespace NaPo
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Window strona = (Window)this.Parent;
-            strona.Close();
-
-            //BiletWieloosobowy p2 = new BiletWieloosobowy();
-            //p2.NavigationService.Navigate(this);
-
-            //Page uri = new BiletWieloosobowy();
-            //this.NavigationService.Navigate(uri);
+            this.Close();
 
         }
     }

@@ -18,11 +18,16 @@ namespace NaPo
     /// <summary>
     /// Logika interakcji dla klasy StronaAdmina.xaml
     /// </summary>
-    public partial class StronaAdmina : Page
+    public partial class StronaAdmina : Window
     {
         public StronaAdmina()
         {
             InitializeComponent();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }
