@@ -20,11 +20,16 @@ namespace NaPo
     /// </summary>
     public partial class BiletJednoosobowy : Window
     {
+        string imię, nazwisko, telefon, email;
         public BiletJednoosobowy()
         {
             InitializeComponent();
             Com1.Items.Add("Olsztyn");
             Com1.Items.Add("Kętrzyn");
+            Com2.Items.Add("Olsztyn");
+            Com2.Items.Add("Kętrzyn");
+            Com3.Items.Add("zwykły");
+            Com3.Items.Add("magiczny");
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -40,8 +45,39 @@ namespace NaPo
 
         private void Klik1_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show(Convert.ToString(Com1.Text));
+            
+            Paragon Par = new Paragon(Com1.Text, Com2.Text, imię, nazwisko,telefon,email,Com3.Text);
+            MessageBox.Show(Par.DrukujParagon2());
+        }
 
+        private void Com2_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void Com3_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            imię = TextImię.Text;
+        }
+
+        private void TextBox_TextChanged_1(object sender, TextChangedEventArgs e)
+        {
+            nazwisko = TextNazwisko.Text;
+        }
+
+        private void TextBox_TextChanged_2(object sender, TextChangedEventArgs e)
+        {
+            telefon = TextTelefon.Text;
+        }
+
+        private void TextBox_TextChanged_3(object sender, TextChangedEventArgs e)
+        {
+            email = TextEmail.Text;
         }
     }
 }
