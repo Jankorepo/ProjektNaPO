@@ -65,6 +65,7 @@
     <Compile Include="StronaAdmina.xaml.cs">
       <DependentUpon>StronaAdmina.xaml</DependentUpon>
     </Compile>
+    <Compile Include="WczytajPliki.cs" />
     <Page Include="BiletJednoosobowy.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

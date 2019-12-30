@@ -24,12 +24,15 @@ namespace NaPo
         public BiletJednoosobowy()
         {
             InitializeComponent();
-            Com1.Items.Add("Olsztyn");
-            Com1.Items.Add("Kętrzyn");
-            Com2.Items.Add("Olsztyn");
-            Com2.Items.Add("Kętrzyn");
-            Com3.Items.Add("zwykły");
-            Com3.Items.Add("magiczny");
+            foreach (var Miasto in WczytajPliki.WczytajMiasta())
+            {
+                Com1.Items.Add(Miasto);
+                Com2.Items.Add(Miasto);
+            }
+            Com3.Items.Add("Zwykły");
+            Com3.Items.Add("Dziecięcy");
+            Com3.Items.Add("Uczniowski");
+            Com3.Items.Add("Emerycki");
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

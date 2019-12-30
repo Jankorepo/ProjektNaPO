@@ -25,10 +25,11 @@ namespace NaPo
         public BiletWieloosobowy()
         {
             InitializeComponent();
-            Com1.Items.Add("Olsztyn");
-            Com1.Items.Add("Kętrzyn");
-            Com2.Items.Add("Olsztyn");
-            Com2.Items.Add("Kętrzyn");
+            foreach (var Miasto in WczytajPliki.WczytajMiasta())
+            {
+                Com1.Items.Add(Miasto);
+                Com2.Items.Add(Miasto);
+            }
         }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
