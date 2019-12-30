@@ -18,18 +18,14 @@ namespace NaPo
     /// <summary>
     /// Logika interakcji dla klasy BiletWieloosobowy.xaml
     /// </summary>
-    public partial class BiletWieloosobowy : Window
+    public partial class BiletWieloosobowy : Window,IFunkcje
     {
         string imię, nazwisko, telefon, email;
         int biletyNormalne=0, biletyDziecięce=0, biletyStudenckie=0, biletyEmeryta = 0;
         public BiletWieloosobowy()
         {
             InitializeComponent();
-            foreach (var Miasto in WczytajPliki.WczytajMiasta())
-            {
-                Com1.Items.Add(Miasto);
-                Com2.Items.Add(Miasto);
-            }
+            Odczytaj();
         }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
@@ -43,7 +39,7 @@ namespace NaPo
         private void TextBiletyDziecięce_TextChanged(object sender, TextChangedEventArgs e)
         {
             if (TextBiletyDziecięce.Text != "")
-                biletyNormalne = Convert.ToInt32(TextBiletyDziecięce.Text);
+                biletyDziecięce = Convert.ToInt32(TextBiletyDziecięce.Text);
             else
                 TextBiletyDziecięce.Text = "0";
         }
@@ -51,7 +47,7 @@ namespace NaPo
         private void TextBiletyStudenckie_TextChanged(object sender, TextChangedEventArgs e)
         {
             if (TextBiletyStudenckie.Text != "")
-                biletyNormalne = Convert.ToInt32(TextBiletyStudenckie.Text);
+                biletyStudenckie = Convert.ToInt32(TextBiletyStudenckie.Text);
             else
                 TextBiletyStudenckie.Text = "0";
         }
@@ -59,7 +55,7 @@ namespace NaPo
         private void TextBiletyEmeryckie_TextChanged(object sender, TextChangedEventArgs e)
         {
             if (TextBiletyEmeryckie.Text != "")
-                biletyNormalne = Convert.ToInt32(TextBiletyEmeryckie.Text);
+                biletyEmeryta = Convert.ToInt32(TextBiletyEmeryckie.Text);
             else
                 TextBiletyEmeryckie.Text = "0";
         }
@@ -102,6 +98,7 @@ namespace NaPo
             Paragon par = new Paragon(Com1.Text,Com2.Text, imię,nazwisko,telefon,email,biletyNormalne,biletyDziecięce,
                 biletyStudenckie,biletyEmeryta);
             MessageBox.Show(par.DrukujParagon1());
+            biletyNormalne = biletyDziecięce = biletyStudenckie = biletyEmeryta = 0;
         }
 
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -111,6 +108,14 @@ namespace NaPo
         private void Com2_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
+        }
+        public void Odczytaj()
+        {
+            foreach (var Miasto in WczytajPliki.WczytajMiasta())
+            {
+                Com1.Items.Add(Miasto);
+                Com2.Items.Add(Miasto);
+            }
         }
     }
 }
