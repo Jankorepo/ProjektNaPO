@@ -18,7 +18,7 @@
         <TextBox x:Name="PoleTextowe9" IsEnabled="False" HorizontalAlignment="Left" Height="22" Margin="37,265,0,0" TextWrapping="Wrap" Text="Liczba osób ze zniżką uczniowską/studencką (50% rabatu)" VerticalAlignment="Top" Width="350"/>
         <TextBox x:Name="PoleTextowe10" IsEnabled="False" HorizontalAlignment="Left" Height="22" Margin="37,303,0,0" TextWrapping="Wrap" Text="Liczba osób ze zniżka emeryta/niepełnosprawnego (25% rabatu)" VerticalAlignment="Top" Width="350"/>
         <ComboBox x:Name="Com1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Margin="217,64,0,0" Height="22" SelectionChanged="ComboBox_SelectionChanged"/>
-        <DatePicker HorizontalAlignment="Left" VerticalAlignment="Top" Margin="217,132,0,0" Height="42" Width="100"/>
+        <DatePicker x:Name="DatePicker1" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="217,132,0,0" Height="42" Width="100"/>
         <TextBox x:Name="PoleTextowe10_Copy" IsEnabled="False" HorizontalAlignment="Left" Height="22" Margin="37,346,0,0" TextWrapping="Wrap" Text="Podaj imię" VerticalAlignment="Top" Width="350"/>
         <TextBox x:Name="PoleTextowe10_Copy1" IsEnabled="False" HorizontalAlignment="Left" Height="22" Margin="37,421,0,0" TextWrapping="Wrap" Text="Podaj numer telefonu" VerticalAlignment="Top" Width="350" TextChanged="PoleTextowe10_Copy1_TextChanged"/>
         <TextBox x:Name="TextBiletyNormalne" HorizontalAlignment="Left" Height="22" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="120" Margin="426,188,0,0" TextChanged="TextBox_TextChanged"/>

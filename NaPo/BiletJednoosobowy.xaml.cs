@@ -27,6 +27,10 @@ namespace NaPo
         {
             InitializeComponent();
             Odczytaj();
+            Com3.Items.Add("Zwykły");
+            Com3.Items.Add("Dziecięcy");
+            Com3.Items.Add("Uczniowski");
+            Com3.Items.Add("Emerycki");
             OdświeżComboBox3(Com3.Text);
         }
 
@@ -42,13 +46,19 @@ namespace NaPo
 
         private void Klik1_Click(object sender, RoutedEventArgs e)
         {
-            double OdległośćOdCelu=WywołajAlgorytmDijkastry(Com1.Text, Com2.Text);
             OdświeżComboBox3(Com3.Text);
-            Paragon par = new Paragon(Com1.Text, Com2.Text, imię, nazwisko, telefon, email, biletyNormalne, biletyDziecięce,
-                biletyStudenckie, biletyEmeryta, OdległośćOdCelu);
-            MessageBox.Show(par.DrukujParagon1());
-            
-            WyczyśćWszystkiePola();
+            string czybłąd = SprawdźCzyPoprawneDane();
+
+            if (czybłąd == "brak błędu")
+            {
+                double OdległośćOdCelu = WywołajAlgorytmDijkastry(Com1.Text, Com2.Text);
+                Paragon par = new Paragon(Com1.Text, Com2.Text, imię, nazwisko, telefon, email, biletyNormalne, biletyDziecięce,
+                biletyStudenckie, biletyEmeryta, OdległośćOdCelu, DatePicker1.Text);
+                MessageBox.Show(par.DrukujParagon1());
+                WyczyśćWszystkiePola();
+            }
+            else
+                MessageBox.Show(czybłąd);
         }
 
         private void Com2_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -63,17 +73,61 @@ namespace NaPo
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            imię = TextImię.Text;
+            if (TextImię.Text != "")
+            {
+                try
+                {
+                    for (int i = 0; i < 10; i++)
+                    {
+                        if (TextImię.Text.Contains(Convert.ToString(i)))
+                            Convert.ToInt32("a");
+                    }
+                    imię = TextImię.Text;
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("W tym miejscu mogą być tylko litery!!!");
+                    TextImię.Text = "";
+                }
+            }
         }
 
         private void TextBox_TextChanged_1(object sender, TextChangedEventArgs e)
         {
-            nazwisko = TextNazwisko.Text;
+            if (TextNazwisko.Text != "")
+            {
+                try
+                {
+                    for (int i = 0; i < 10; i++)
+                    {
+                        if (TextNazwisko.Text.Contains(Convert.ToString(i)))
+                            Convert.ToInt32("a");
+                    }
+                    nazwisko = TextNazwisko.Text;
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("W tym miejscu mogą być tylko litery!!!");
+                    TextNazwisko.Text = "";
+                }
+            }
         }
 
         private void TextBox_TextChanged_2(object sender, TextChangedEventArgs e)
         {
-            telefon = TextTelefon.Text;
+            if (TextTelefon.Text != "")
+            {
+                try
+                {
+                    Convert.ToInt32(TextTelefon.Text);
+                    telefon = TextTelefon.Text;
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("W tym miejscu mogą być tylko liczby!!!");
+                    TextTelefon.Text = "";
+                }
+            }
         }
 
         private void TextBox_TextChanged_3(object sender, TextChangedEventArgs e)
@@ -99,12 +153,6 @@ namespace NaPo
                 biletyStudenckie = 1;
             else if (text == "Emerycki")
                 biletyEmeryta = 1;
-            Com3.Items.Clear();
-
-            Com3.Items.Add("Zwykły");
-            Com3.Items.Add("Dziecięcy");
-            Com3.Items.Add("Uczniowski");
-            Com3.Items.Add("Emerycki");
         }
         public double WywołajAlgorytmDijkastry(string text1, string text2)
         {
@@ -127,6 +175,31 @@ namespace NaPo
             TextEmail.Text = "";
             Com1.Text = null;
             Com2.Text = null;
+            Com3.Text = null;
+            DatePicker1.Text = null;
+        }
+        string SprawdźCzyPoprawneDane()
+        {
+            string błąd = "Podano błędne dane: ";
+            if (Com1.Text == null || Com1.Text == "")
+                return błąd;
+            if (Com2.Text == null || Com2.Text == "")
+                return błąd;
+            if (Com3.Text == null || Com3.Text == "")
+                return błąd;
+            if (DatePicker1 == null || DatePicker1.Text == "")
+                return błąd;
+            if (imię == null || imię == "")
+                return błąd;
+            if (nazwisko == null || nazwisko == "")
+                return błąd;
+            if (telefon == null || telefon == "")
+                return błąd;
+            if (email == null || email == "")
+                return błąd;
+            if (biletyNormalne + biletyDziecięce + biletyStudenckie + biletyEmeryta == 0)
+                return błąd;
+            return "brak błędu";
         }
     }
 }

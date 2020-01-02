@@ -31,8 +31,19 @@ namespace NaPo
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
+            
             if (TextBiletyNormalne.Text != "")
-                biletyNormalne = Convert.ToInt32(TextBiletyNormalne.Text);
+            {
+                try
+                {
+                    biletyNormalne = Convert.ToInt32(TextBiletyNormalne.Text);
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("W tym miejscu mogą być tylko liczby!!!");
+                    TextBiletyNormalne.Text = "0";
+                }
+            }
             else
                 TextBiletyNormalne.Text = "0";
         }
@@ -40,7 +51,17 @@ namespace NaPo
         private void TextBiletyDziecięce_TextChanged(object sender, TextChangedEventArgs e)
         {
             if (TextBiletyDziecięce.Text != "")
-                biletyDziecięce = Convert.ToInt32(TextBiletyDziecięce.Text);
+            {
+                try
+                {
+                    biletyDziecięce = Convert.ToInt32(TextBiletyDziecięce.Text);
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("W tym miejscu mogą być tylko liczby!!!");
+                    TextBiletyDziecięce.Text = "0";
+                }
+            }
             else
                 TextBiletyDziecięce.Text = "0";
         }
@@ -48,7 +69,17 @@ namespace NaPo
         private void TextBiletyStudenckie_TextChanged(object sender, TextChangedEventArgs e)
         {
             if (TextBiletyStudenckie.Text != "")
-                biletyStudenckie = Convert.ToInt32(TextBiletyStudenckie.Text);
+            {
+                try
+                {
+                    biletyStudenckie = Convert.ToInt32(TextBiletyStudenckie.Text);
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("W tym miejscu mogą być tylko liczby!!!");
+                    TextBiletyStudenckie.Text = "0";
+                }
+            }
             else
                 TextBiletyStudenckie.Text = "0";
         }
@@ -56,24 +87,79 @@ namespace NaPo
         private void TextBiletyEmeryckie_TextChanged(object sender, TextChangedEventArgs e)
         {
             if (TextBiletyEmeryckie.Text != "")
-                biletyEmeryta = Convert.ToInt32(TextBiletyEmeryckie.Text);
+            {
+                try
+                {
+                    biletyEmeryta = Convert.ToInt32(TextBiletyEmeryckie.Text);
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("W tym miejscu mogą być tylko liczby!!!");
+                    TextBiletyEmeryckie.Text = "0";
+                }
+            }
             else
                 TextBiletyEmeryckie.Text = "0";
         }
 
         private void TextImię_TextChanged(object sender, TextChangedEventArgs e)
         {
-            imię = TextImię.Text;
+            
+            if (TextImię.Text != "")
+            {
+                try
+                {
+                    for (int i = 0; i < 10; i++)
+                    {
+                        if (TextImię.Text.Contains(Convert.ToString(i)))
+                            Convert.ToInt32("a");
+                    }
+                    imię=TextImię.Text;
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("W tym miejscu mogą być tylko litery!!!");
+                    TextImię.Text = "";
+                }
+            }
         }
 
         private void TextNazwisko_TextChanged(object sender, TextChangedEventArgs e)
         {
-            nazwisko = TextNazwisko.Text;
+            if (TextNazwisko.Text != "")
+            {
+                try
+                {
+                    for (int i = 0; i < 10; i++)
+                    {
+                        if (TextNazwisko.Text.Contains(Convert.ToString(i)))
+                            Convert.ToInt32("a");
+                    }
+                    nazwisko = TextNazwisko.Text;
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("W tym miejscu mogą być tylko litery!!!");
+                    TextNazwisko.Text = "";
+                }
+            }
         }
 
         private void TextTelefon_TextChanged(object sender, TextChangedEventArgs e)
         {
-            telefon = TextTelefon.Text;
+            if (TextTelefon.Text != "")
+            {
+                try
+                {
+                    Convert.ToInt32(TextTelefon.Text);
+                    telefon = TextTelefon.Text;
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("W tym miejscu mogą być tylko liczby!!!");
+                    TextTelefon.Text = "";
+                }
+            }
         }
 
         
@@ -96,13 +182,19 @@ namespace NaPo
 
         private void Klik1_Click(object sender, RoutedEventArgs e)
         {
-            double OdległośćOdCelu = WywołajAlgorytmDijkastry(Com1.Text, Com2.Text);
+            string czybłąd = SprawdźCzyPoprawneDane();
+            
+            if (czybłąd=="brak błędu")
+            {
+                double OdległośćOdCelu = WywołajAlgorytmDijkastry(Com1.Text, Com2.Text);
+                Paragon par = new Paragon(Com1.Text, Com2.Text, imię, nazwisko, telefon, email, biletyNormalne, biletyDziecięce,
+                biletyStudenckie, biletyEmeryta, OdległośćOdCelu, DatePicker1.Text);
+                MessageBox.Show(par.DrukujParagon1());
+                WyczyśćWszystkiePola();
+            }
+            else
+                MessageBox.Show(czybłąd);
 
-
-            Paragon par = new Paragon(Com1.Text,Com2.Text, imię,nazwisko,telefon,email,biletyNormalne,biletyDziecięce,
-                biletyStudenckie,biletyEmeryta, OdległośćOdCelu);
-            MessageBox.Show(par.DrukujParagon1());
-            WyczyśćWszystkiePola();
         }
 
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -142,11 +234,37 @@ namespace NaPo
             TextBiletyStudenckie.Text = "0";
             TextBiletyEmeryckie.Text = "0";
             TextImię.Text = "";
+            imię = null;
             TextNazwisko.Text = "";
+            nazwisko = null;
             TextTelefon.Text = "";
+            telefon = null;
             TextEmail.Text = "";
+            email = null;
             Com1.Text = null;
             Com2.Text = null;
+            DatePicker1.Text = null;
+        }
+        string SprawdźCzyPoprawneDane()
+        {
+            string błąd = "Podano błędne dane: ";
+            if (Com1.Text == null || Com1.Text=="")
+                return błąd;
+            if (Com2.Text == null || Com2.Text == "")
+                return błąd;
+            if (DatePicker1==null || DatePicker1.Text == "")
+                return błąd;
+            if(imię==null || imię=="")
+                return błąd;
+            if (nazwisko == null || nazwisko=="")
+                return błąd;
+            if (telefon == null || telefon=="")
+                return błąd;
+            if (email == null || email=="")
+                return błąd;
+            if (biletyNormalne + biletyDziecięce + biletyStudenckie + biletyEmeryta == 0)
+                return błąd;
+            return "brak błędu";
         }
     }
 }

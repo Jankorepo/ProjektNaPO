@@ -19,12 +19,13 @@ namespace NaPo
         public int liczbaOsobZBiletemStudenckim=0;
         public int liczbaOsobZBiletemEmeryta=0;
         public int numerParagonu=0;
-        public int godzinaDrukuParagonu=0;
+        public string godzinaDrukuParagonu=Convert.ToString(DateTime.Now);
         public double odległośćOdCelu = 0;
         public double cenaBiletu = 0;
+        public string data;
         public Paragon(string początekPodróży, string celPodróży, string imięKlienta, string nazwiskoKlienta,
             string nrTelefonuKlienta, string emailKlienta, int liczbaOsobZBiletemNormalnym, int liczbaOsobZBiletemDziecięcym,
-            int liczbaOsobZBiletemStudenckim, int liczbaOsobZBiletemEmeryta, double odległośćOdCelu)
+            int liczbaOsobZBiletemStudenckim, int liczbaOsobZBiletemEmeryta, double odległośćOdCelu, string data)
         {
             this.początekPodróży = początekPodróży;
             this.celPodróży = celPodróży;
@@ -37,13 +38,9 @@ namespace NaPo
             this.liczbaOsobZBiletemStudenckim = liczbaOsobZBiletemStudenckim;
             this.liczbaOsobZBiletemEmeryta = liczbaOsobZBiletemEmeryta;
             this.odległośćOdCelu = odległośćOdCelu;
+            this.data = data;
 
         }
-        //public int WyliczOdległośćOdCelu()
-        //{
-
-        //    return odległośćOdCelu;
-        //}
         public void WyliczCenęBiletu()
         {
             if (this.odległośćOdCelu<=100)
@@ -75,8 +72,8 @@ namespace NaPo
                 "-" + this.początekPodróży + "\ndo\n" +
                 "-" + this.celPodróży + "\nNa dzień\n" +
 
-                "-" + "01.01.1900" + "\n" + "Cena biletu\n" +
-                "-" + this.cenaBiletu + "\n\n" +
+                "-" +this.data+ "\n" + "Cena biletu\n" +
+                "-" + this.cenaBiletu + "zł\n\n" +
                 "Imię: " + this.imięKlienta + "\n" +
                 "Nazwisko: " + this.nazwiskoKlienta + "\n" +
                 "Nr.Telefonu: " + this.nrTelefonuKlienta + "\n" +
