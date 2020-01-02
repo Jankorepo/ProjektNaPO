@@ -20,6 +20,7 @@ namespace NaPo
     /// </summary>
     public partial class BiletWieloosobowy : Window,IFunkcje
     {
+        GrafMiast Mapa = new GrafMiast();
         string imię, nazwisko, telefon, email;
         int biletyNormalne=0, biletyDziecięce=0, biletyStudenckie=0, biletyEmeryta = 0;
         public BiletWieloosobowy()
@@ -95,8 +96,19 @@ namespace NaPo
 
         private void Klik1_Click(object sender, RoutedEventArgs e)
         {
+            Miasto tmp1 = null, tmp2 = null;
+            foreach (var item in Mapa.Nodes)
+            {
+                if (item.wartość == Com1.Text)
+                    tmp1 = item;
+                if (item.wartość == Com2.Text)
+                    tmp2 = item;
+            }
+            double OdległośćOdCelu = Mapa.AlgorytmDijkstry(tmp1, tmp2);
+
+
             Paragon par = new Paragon(Com1.Text,Com2.Text, imię,nazwisko,telefon,email,biletyNormalne,biletyDziecięce,
-                biletyStudenckie,biletyEmeryta);
+                biletyStudenckie,biletyEmeryta, OdległośćOdCelu);
             MessageBox.Show(par.DrukujParagon1());
             biletyNormalne = biletyDziecięce = biletyStudenckie = biletyEmeryta = 0;
         }
@@ -111,11 +123,12 @@ namespace NaPo
         }
         public void Odczytaj()
         {
-            foreach (var Miasto in WczytajPliki.WczytajMiasta())
+            foreach (var Miasto in WczytajPliki.WczytajMiasta(Mapa))
             {
                 Com1.Items.Add(Miasto);
                 Com2.Items.Add(Miasto);
             }
+            WczytajPliki.WczytajDrogi(Mapa);
         }
     }
 }

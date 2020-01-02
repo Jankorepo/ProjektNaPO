@@ -61,8 +61,12 @@
     <Compile Include="BiletWieloosobowy.xaml.cs">
       <DependentUpon>BiletWieloosobowy.xaml</DependentUpon>
     </Compile>
+    <Compile Include="GrafMiast.cs" />
     <Compile Include="IFunkcje.cs" />
+    <Compile Include="Miasto.cs" />
+    <Compile Include="OdległościMiędzyMiastowe.cs" />
     <Compile Include="Paragon.cs" />
+    <Compile Include="PołączenieMiast.cs" />
     <Compile Include="StronaAdmina.xaml.cs">
       <DependentUpon>StronaAdmina.xaml</DependentUpon>
     </Compile>

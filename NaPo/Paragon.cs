@@ -20,11 +20,11 @@ namespace NaPo
         public int liczbaOsobZBiletemEmeryta=0;
         public int numerParagonu=0;
         public int godzinaDrukuParagonu=0;
-        public double odległośćOdCelu = 504;
+        public double odległośćOdCelu = 0;
         public double cenaBiletu = 0;
         public Paragon(string początekPodróży, string celPodróży, string imięKlienta, string nazwiskoKlienta,
             string nrTelefonuKlienta, string emailKlienta, int liczbaOsobZBiletemNormalnym, int liczbaOsobZBiletemDziecięcym,
-            int liczbaOsobZBiletemStudenckim, int liczbaOsobZBiletemEmeryta)
+            int liczbaOsobZBiletemStudenckim, int liczbaOsobZBiletemEmeryta, double odległośćOdCelu)
         {
             this.początekPodróży = początekPodróży;
             this.celPodróży = celPodróży;
@@ -36,6 +36,7 @@ namespace NaPo
             this.liczbaOsobZBiletemDziecięcym = liczbaOsobZBiletemDziecięcym;
             this.liczbaOsobZBiletemStudenckim = liczbaOsobZBiletemStudenckim;
             this.liczbaOsobZBiletemEmeryta = liczbaOsobZBiletemEmeryta;
+            this.odległośćOdCelu = odległośćOdCelu;
 
         }
         //public int WyliczOdległośćOdCelu()
