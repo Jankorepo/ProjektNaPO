@@ -96,21 +96,13 @@ namespace NaPo
 
         private void Klik1_Click(object sender, RoutedEventArgs e)
         {
-            Miasto tmp1 = null, tmp2 = null;
-            foreach (var item in Mapa.Nodes)
-            {
-                if (item.wartość == Com1.Text)
-                    tmp1 = item;
-                if (item.wartość == Com2.Text)
-                    tmp2 = item;
-            }
-            double OdległośćOdCelu = Mapa.AlgorytmDijkstry(tmp1, tmp2);
+            double OdległośćOdCelu = WywołajAlgorytmDijkastry(Com1.Text, Com2.Text);
 
 
             Paragon par = new Paragon(Com1.Text,Com2.Text, imię,nazwisko,telefon,email,biletyNormalne,biletyDziecięce,
                 biletyStudenckie,biletyEmeryta, OdległośćOdCelu);
             MessageBox.Show(par.DrukujParagon1());
-            biletyNormalne = biletyDziecięce = biletyStudenckie = biletyEmeryta = 0;
+            WyczyśćWszystkiePola();
         }
 
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -129,6 +121,32 @@ namespace NaPo
                 Com2.Items.Add(Miasto);
             }
             WczytajPliki.WczytajDrogi(Mapa);
+        }
+        public double WywołajAlgorytmDijkastry(string text1, string text2)
+        {
+            Miasto tmp1 = null, tmp2 = null;
+            foreach (var item in Mapa.Nodes)
+            {
+                if (item.wartość == text1)
+                    tmp1 = item;
+                if (item.wartość == text2)
+                    tmp2 = item;
+            }
+            return Mapa.AlgorytmDijkstry(tmp1, tmp2);
+        }
+        public void WyczyśćWszystkiePola()
+        {
+            biletyNormalne = biletyDziecięce = biletyStudenckie = biletyEmeryta = 0;
+            TextBiletyNormalne.Text = "0";
+            TextBiletyDziecięce.Text = "0";
+            TextBiletyStudenckie.Text = "0";
+            TextBiletyEmeryckie.Text = "0";
+            TextImię.Text = "";
+            TextNazwisko.Text = "";
+            TextTelefon.Text = "";
+            TextEmail.Text = "";
+            Com1.Text = null;
+            Com2.Text = null;
         }
     }
 }

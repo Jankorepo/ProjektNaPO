@@ -18,7 +18,7 @@ namespace NaPo
     /// <summary>
     /// Logika interakcji dla klasy BiletJednoosobowy.xaml
     /// </summary>
-    public partial class BiletJednoosobowy : Window,IFunkcje
+    public partial class BiletJednoosobowy : Window, IFunkcje
     {
         GrafMiast Mapa = new GrafMiast();
         string imię, nazwisko, telefon, email;
@@ -27,46 +27,28 @@ namespace NaPo
         {
             InitializeComponent();
             Odczytaj();
-            Zniżki();
+            OdświeżComboBox3(Com3.Text);
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
-
         }
 
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            
+
         }
 
         private void Klik1_Click(object sender, RoutedEventArgs e)
         {
-            Miasto tmp1 = null, tmp2 = null;
-            foreach (var item in Mapa.Nodes)
-            {
-                if (item.wartość == Com1.Text)
-                    tmp1 = item;
-                if (item.wartość == Com2.Text)
-                    tmp2 = item;
-            }
-            double OdległośćOdCelu = Mapa.AlgorytmDijkstry(tmp1, tmp2);
-
-            if (Com3.Text == "Zwykły")
-                biletyNormalne = 1;
-            else if (Com3.Text == "Dziecięcy")
-                biletyDziecięce = 1;
-            else if (Com3.Text == "Uczniowski")
-                biletyStudenckie = 1;
-            else if (Com3.Text == "Emerycki")
-                biletyEmeryta = 1;
-            Com3.Items.Clear();
-            Zniżki();
+            double OdległośćOdCelu=WywołajAlgorytmDijkastry(Com1.Text, Com2.Text);
+            OdświeżComboBox3(Com3.Text);
             Paragon par = new Paragon(Com1.Text, Com2.Text, imię, nazwisko, telefon, email, biletyNormalne, biletyDziecięce,
                 biletyStudenckie, biletyEmeryta, OdległośćOdCelu);
             MessageBox.Show(par.DrukujParagon1());
-            biletyNormalne = biletyDziecięce = biletyStudenckie = biletyEmeryta = 0;
+            
+            WyczyśćWszystkiePola();
         }
 
         private void Com2_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -76,7 +58,7 @@ namespace NaPo
 
         private void Com3_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            
+
         }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
@@ -107,12 +89,44 @@ namespace NaPo
             }
             WczytajPliki.WczytajDrogi(Mapa);
         }
-        public void Zniżki()
+        public void OdświeżComboBox3(string text)
         {
+            if (text == "Zwykły")
+                biletyNormalne = 1;
+            else if (text == "Dziecięcy")
+                biletyDziecięce = 1;
+            else if (text == "Uczniowski")
+                biletyStudenckie = 1;
+            else if (text == "Emerycki")
+                biletyEmeryta = 1;
+            Com3.Items.Clear();
+
             Com3.Items.Add("Zwykły");
             Com3.Items.Add("Dziecięcy");
             Com3.Items.Add("Uczniowski");
             Com3.Items.Add("Emerycki");
+        }
+        public double WywołajAlgorytmDijkastry(string text1, string text2)
+        {
+            Miasto tmp1 = null, tmp2 = null;
+            foreach (var item in Mapa.Nodes)
+            {
+                if (item.wartość == text1)
+                    tmp1 = item;
+                if (item.wartość == text2)
+                    tmp2 = item;
+            }
+            return Mapa.AlgorytmDijkstry(tmp1, tmp2);
+        }
+        public void WyczyśćWszystkiePola()
+        {
+            biletyNormalne = biletyDziecięce = biletyStudenckie = biletyEmeryta = 0;
+            TextImię.Text = "";
+            TextNazwisko.Text = "";
+            TextTelefon.Text = "";
+            TextEmail.Text = "";
+            Com1.Text = null;
+            Com2.Text = null;
         }
     }
 }
