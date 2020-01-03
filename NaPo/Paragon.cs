@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace NaPo
 {
     class Paragon
@@ -18,7 +19,7 @@ namespace NaPo
         public int liczbaOsobZBiletemDziecięcym=0;
         public int liczbaOsobZBiletemStudenckim=0;
         public int liczbaOsobZBiletemEmeryta=0;
-        public int numerParagonu=0;
+        public string numerParagonu;
         public string godzinaDrukuParagonu=Convert.ToString(DateTime.Now);
         public double odległośćOdCelu = 0;
         public double cenaBiletu = 0;
@@ -41,37 +42,37 @@ namespace NaPo
             this.data = data;
 
         }
-        public void WyliczCenęBiletu()
+        public void WywołajWyliczCenęBiletu()
         {
+            double CenaBiletuNormalnego1 = 0.45;
+            double CenaBiletuNormalnego2 = 0.30;
+            double CenaBiletuNormalnego3 = 0.20;
+            double CenaBiletuNormalnego4 = 0.18;
             if (this.odległośćOdCelu<=100)
-            {
-                this.cenaBiletu = ((this.liczbaOsobZBiletemNormalnym * 1.6)+
-                    (this.liczbaOsobZBiletemDziecięcym * 0.4)+
-                    (this.liczbaOsobZBiletemStudenckim * 0.8)+
-                    (this.liczbaOsobZBiletemEmeryta * 1.2))*this.odległośćOdCelu;
-            }
-            else if (this.odległośćOdCelu > 100 && this.odległośćOdCelu <= 500)
-            {
-                this.cenaBiletu = ((this.liczbaOsobZBiletemNormalnym * 1) +
-                    (this.liczbaOsobZBiletemDziecięcym * 0.25) +
-                    (this.liczbaOsobZBiletemStudenckim * 0.5) +
-                    (this.liczbaOsobZBiletemEmeryta * 0.75)) * this.odległośćOdCelu;
-            }
+                WyliczCenęBiletu(CenaBiletuNormalnego1);
+            else if (this.odległośćOdCelu > 100 && this.odległośćOdCelu <= 300)
+                WyliczCenęBiletu(CenaBiletuNormalnego2);
+            else if (this.odległośćOdCelu > 300 && this.odległośćOdCelu <= 500)
+                WyliczCenęBiletu(CenaBiletuNormalnego3);
             else if (this.odległośćOdCelu > 500)
-            {
-                this.cenaBiletu = ((this.liczbaOsobZBiletemNormalnym * 0.6) +
-                    (this.liczbaOsobZBiletemDziecięcym * 0.15) +
-                    (this.liczbaOsobZBiletemStudenckim * 0.3) +
-                    (this.liczbaOsobZBiletemEmeryta * 0.45)) * this.odległośćOdCelu;
-            }
+                WyliczCenęBiletu(CenaBiletuNormalnego4);
         }
+        void WyliczCenęBiletu(double Cena)
+        {
+            this.cenaBiletu = ((this.liczbaOsobZBiletemNormalnym * Cena) +
+                    (this.liczbaOsobZBiletemDziecięcym * Cena * 0.25) +
+                    (this.liczbaOsobZBiletemStudenckim * Cena * 0.5) +
+                    (this.liczbaOsobZBiletemEmeryta * Cena * 0.75)) * this.odległośćOdCelu;
+        }
+        
         public string DrukujParagon1()
         {
-            WyliczCenęBiletu();
+            WywołajWyliczCenęBiletu();
+            this.numerParagonu=WczytajPliki.NumerParagonu();
+            
             string wynik = "Bilet imienny z \n" +
                 "-" + this.początekPodróży + "\ndo\n" +
                 "-" + this.celPodróży + "\nNa dzień\n" +
-
                 "-" +this.data+ "\n" + "Cena biletu\n" +
                 "-" + this.cenaBiletu + "zł\n\n" +
                 "Imię: " + this.imięKlienta + "\n" +
@@ -84,7 +85,10 @@ namespace NaPo
                 "Ilość biletów emeryta/osoby niepełosprawnej: " + this.liczbaOsobZBiletemEmeryta + "\n" +
                 "Godzina kupna biletu: " + this.godzinaDrukuParagonu + "\n" +
                 "Numer transakcji: " + this.numerParagonu + "\n";
-            return wynik;
+            if (WczytajPliki.WypiszDoPliku(wynik, this.numerParagonu))
+                return "Dziękujemy za zakup biletu!\nŻyczymy dobrej podróży\n\nTwój bilet został zapisany na pulpicie";
+            else
+                return "Pojawił się błąd z zapisem biletu do pliku na pulpicie";
         }
 
     }

@@ -252,6 +252,8 @@ namespace NaPo
                 return błąd;
             if (Com2.Text == null || Com2.Text == "")
                 return błąd;
+            if (Com1.Text == Com2.Text)
+                return błąd;
             if (DatePicker1==null || DatePicker1.Text == "")
                 return błąd;
             if(imię==null || imię=="")

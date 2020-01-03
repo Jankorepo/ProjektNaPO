@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace NaPo
 {
@@ -11,7 +12,7 @@ namespace NaPo
         static public List<string> WczytajMiasta(GrafMiast Mapa)
         {
             List<string> Combo = new List<string>();
-            string[] miasta = System.IO.File.ReadAllLines("Miasta.txt");
+            string[] miasta = File.ReadAllLines("Miasta.txt");
             foreach (var tmp in miasta)
             {
                 Combo.Add(tmp);
@@ -23,7 +24,7 @@ namespace NaPo
         {
             Miasto tmp1=null, tmp2=null;
             string[] x = new string[3];
-            string[] Drogi = System.IO.File.ReadAllLines("Połączenia.txt");
+            string[] Drogi = File.ReadAllLines("Połączenia.txt");
             foreach (string danePołączenie in Drogi)
             {
                 x = danePołączenie.Split(',');
@@ -39,5 +40,34 @@ namespace NaPo
                 tmp1 = tmp2 = null;
             }
         }
+        public static string NumerParagonu()
+        {
+            string[] ParagonWartość = File.ReadAllLines("NrParagonu.txt");
+            using (StreamWriter writer = new StreamWriter("NrParagonu.txt", false))
+            {
+                int tmpParagon = Convert.ToInt32(ParagonWartość[0]) + 1;
+                writer.WriteLine(tmpParagon);
+                writer.Close();
+            }
+            return ParagonWartość[0];
+        }
+        public static bool WypiszDoPliku(string wynik, string numerParagonu)
+        {
+            try
+            {
+                string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+                using (StreamWriter writer = new StreamWriter(path + "/Paragon_" + numerParagonu + ".txt", false))
+                {
+                    writer.Write(wynik);
+                    writer.Close();
+                }
+                return true;
+            }
+            catch(Exception)
+            {
+                return false;
+            }
+        }
+        
     }
 }
