@@ -119,8 +119,8 @@ namespace NaPo
             {
                 try
                 {
-                    Convert.ToInt32(TextTelefon.Text);
                     telefon = TextTelefon.Text;
+                    Convert.ToInt32(telefon.Replace(" ", ""));
                 }
                 catch (Exception)
                 {
@@ -178,7 +178,7 @@ namespace NaPo
             Com3.Text = null;
             DatePicker1.Text = null;
         }
-        string SprawdźCzyPoprawneDane()
+        public string SprawdźCzyPoprawneDane()
         {
             string błąd = "Podano błędne dane: ";
             if (Com1.Text == null || Com1.Text == "")
@@ -195,7 +195,7 @@ namespace NaPo
                 return błąd;
             if (nazwisko == null || nazwisko == "")
                 return błąd;
-            if (telefon == null || telefon == "")
+            if (telefon == null || telefon == "" || !(telefon.Length == 9 || telefon.Length == 11))
                 return błąd;
             if (email == null || email == "")
                 return błąd;
