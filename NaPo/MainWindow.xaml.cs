@@ -10,63 +10,19 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace NaPo
 {
     public partial class MainWindow : Window
     {
+        
+        string NowaNazwa, NoweHaslo, NoweImię, NoweNazwisko, NowyTelefon, NowyEmail, NowyPESEL;
         public MainWindow()
         {
             InitializeComponent();
         }
 
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            if (T1.Text == "password")
-            {
-                Hide();
-                new StronaAdmina().ShowDialog();
-                ShowDialog();
-            }
-        }
-
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-            Hide();
-            new BiletJednoosobowy().ShowDialog();
-            ShowDialog();
-        }
-
-        private void Button_Click_2(object sender, RoutedEventArgs e)
-        {
-            Hide();
-            new BiletWieloosobowy().ShowDialog();
-            ShowDialog();
-        }
-
-        private void Button_Click_3(object sender, RoutedEventArgs e)
-        {
-            MessageBox.Show("Cena biletu(do 100km):" +
-                "\n Normalny: 1,60zł/km" +
-                "\n Dziecięcy(do lat 3): 0.40zł/km(-75%)" +
-                "\n Szkolny/studencki: 0,80zł/km(-50%)" +
-                "\n Emerytalny/osoby niepełosprawnej: 1,20zł/km(-25%)" +
-
-                "\n\n Cena biletu(powyżej 100km):"+
-                "\n Normalny: 1,00zł/km" +
-                "\n Dziecięcy(do lat 3): 0,25zł/km(-75%)" +
-                "\n Szkolny/studencki: 0,50zł/km(-50%)" +
-                "\n Emerytalny/osoby niepełosprawnej: 0,75zł/km(-25%)"+
-
-                "\n\n Cena biletu(powyżej 500km):" +
-                "\n Normalny: 0,60zł/km" +
-                "\n Dziecięcy(do lat 3): 0.15zł/km(-75%)" +
-                "\n Szkolny/studencki: 0,30zł/km(-50%)" +
-                "\n Emerytalny/osoby niepełosprawnej: 0,45zł/km(-25%)");
-        }
 
         private void Button_Click_4(object sender, RoutedEventArgs e)
         {
@@ -84,6 +40,113 @@ namespace NaPo
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            List<Osoba> Użytkownicy = WczytajPliki.WczytajUżytkowników();
+            try
+            {
+                Osoba CzyIstniejeTakiUżytkownik = Użytkownicy.Find(k => k.nazwaUżytkownika == TextLogNazwaUżytkownika.Text && k.hasło == TextLogHasło.Text);
+                string dlaczegToNieDziała = CzyIstniejeTakiUżytkownik.nazwaUżytkownika;
+                if (CzyIstniejeTakiUżytkownik.CzyAdmin=="nie")
+                {
+                    Hide();
+                    new WybierzBilet(CzyIstniejeTakiUżytkownik).ShowDialog();
+                    ShowDialog();
+                }
+                else
+                {
+                    Hide();
+                    new StronaAdmina().ShowDialog();
+                    ShowDialog();
+                }
+            }
+            catch(Exception)
+            {
+                MessageBox.Show("Błąd przy logowaniu, proszę spróbować jeszcze raz");
+            }
+            
+        }
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            Osoba nowyKlient = new Osoba(NoweImię, NoweNazwisko, NowyTelefon, NowyEmail, NowaNazwa, NoweHaslo, NowyPESEL, "nie");
+            WczytajPliki.DodajUżytkownika(nowyKlient);
+        }
+        private void TextLogNazwaUżytkownika_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            
+        }
+
+        private void TextLogHasło_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void TextRejNazwaUżytkownika_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            NowaNazwa = TextRejNazwaUżytkownika.Text;
+        }
+
+
+        private void TextRejHasło_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            NoweHaslo = TextRejHasło.Text;
+        }
+
+        private void TextRejImię_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (TextRejImię.Text != "")
+            {
+                try
+                {
+                    for (int i = 0; i < 10; i++)
+                    {
+                        if (TextRejImię.Text.Contains(Convert.ToString(i)))
+                            Convert.ToInt32("a");
+                    }
+                    NoweImię = TextRejImię.Text;
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("W tym miejscu mogą być tylko litery!!!");
+                    TextRejImię.Text = "";
+                }
+            }
+        }
+
+        private void TextRejNazwisko_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (TextRejNazwisko.Text != "")
+            {
+                try
+                {
+                    for (int i = 0; i < 10; i++)
+                    {
+                        if (TextRejNazwisko.Text.Contains(Convert.ToString(i)))
+                            Convert.ToInt32("a");
+                    }
+                    NoweNazwisko = TextRejNazwisko.Text;
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("W tym miejscu mogą być tylko litery!!!");
+                    TextRejNazwisko.Text = "";
+                }
+            }
+        }
+
+        private void TextRejTelefon_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            NowyTelefon = TextRejTelefon.Text;
+        }
+        private void TextRejEmail_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            NowyEmail = TextRejEmail.Text;
+        }
+        private void TextRejPESEL_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            NowyPESEL = TextRejPESEL.Text;
         }
     }
 }

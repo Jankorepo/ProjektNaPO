@@ -15,20 +15,37 @@ using System.Windows.Shapes;
 
 namespace NaPo
 {
+
     /// <summary>
     /// Logika interakcji dla klasy BiletWieloosobowy.xaml
     /// </summary>
     public partial class BiletWieloosobowy : Window,IFunkcje
     {
+        public Osoba TenKonkretnyKlient;
         GrafMiast Mapa = new GrafMiast();
-        string imię, nazwisko, telefon, email;
         int biletyNormalne=0, biletyDziecięce=0, biletyStudenckie=0, biletyEmeryta = 0;
-        public BiletWieloosobowy()
+        public BiletWieloosobowy(Osoba TenKonkretnyKlient)
         {
+            this.TenKonkretnyKlient = TenKonkretnyKlient;
             InitializeComponent();
             Odczytaj();
         }
+        private void Klik1_Click(object sender, RoutedEventArgs e)
+        {
+            string czybłąd = SprawdźCzyPoprawneDane();
 
+            if (czybłąd == "brak błędu")
+            {
+                double OdległośćOdCelu = WywołajAlgorytmDijkastry(Com1.Text, Com2.Text);
+                Paragon par = new Paragon(Com1.Text, Com2.Text, TenKonkretnyKlient.imię, TenKonkretnyKlient.nazwisko, TenKonkretnyKlient.telefon,
+                    TenKonkretnyKlient.email, biletyNormalne, biletyDziecięce,biletyStudenckie, biletyEmeryta, OdległośćOdCelu, DatePicker1.Text);
+                MessageBox.Show(par.DrukujParagon1());
+                WyczyśćWszystkiePola();
+            }
+            else
+                MessageBox.Show(czybłąd);
+
+        }
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             
@@ -102,73 +119,8 @@ namespace NaPo
                 TextBiletyEmeryckie.Text = "0";
         }
 
-        private void TextImię_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            
-            if (TextImię.Text != "")
-            {
-                try
-                {
-                    for (int i = 0; i < 10; i++)
-                    {
-                        if (TextImię.Text.Contains(Convert.ToString(i)))
-                            Convert.ToInt32("a");
-                    }
-                    imię=TextImię.Text;
-                }
-                catch (Exception)
-                {
-                    MessageBox.Show("W tym miejscu mogą być tylko litery!!!");
-                    TextImię.Text = "";
-                }
-            }
-        }
 
-        private void TextNazwisko_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            if (TextNazwisko.Text != "")
-            {
-                try
-                {
-                    for (int i = 0; i < 10; i++)
-                    {
-                        if (TextNazwisko.Text.Contains(Convert.ToString(i)))
-                            Convert.ToInt32("a");
-                    }
-                    nazwisko = TextNazwisko.Text;
-                }
-                catch (Exception)
-                {
-                    MessageBox.Show("W tym miejscu mogą być tylko litery!!!");
-                    TextNazwisko.Text = "";
-                }
-            }
-        }
 
-        private void TextTelefon_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            if (TextTelefon.Text != "")
-            {
-                try
-                {
-                    telefon = TextTelefon.Text;
-                    Convert.ToInt32(telefon.Replace(" ", ""));
-                    
-                }
-                catch (Exception)
-                {
-                    MessageBox.Show("W tym miejscu mogą być tylko liczby!!!");
-                    TextTelefon.Text = "";
-                }
-            }
-        }
-
-        
-
-        private void TextEmail_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            email = TextEmail.Text;
-        }
 
         private void PoleTextowe10_Copy1_TextChanged(object sender, TextChangedEventArgs e)
         {
@@ -179,23 +131,6 @@ namespace NaPo
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
-        }
-
-        private void Klik1_Click(object sender, RoutedEventArgs e)
-        {
-            string czybłąd = SprawdźCzyPoprawneDane();
-            
-            if (czybłąd=="brak błędu")
-            {
-                double OdległośćOdCelu = WywołajAlgorytmDijkastry(Com1.Text, Com2.Text);
-                Paragon par = new Paragon(Com1.Text, Com2.Text, imię, nazwisko, telefon, email, biletyNormalne, biletyDziecięce,
-                biletyStudenckie, biletyEmeryta, OdległośćOdCelu, DatePicker1.Text);
-                MessageBox.Show(par.DrukujParagon1());
-                WyczyśćWszystkiePola();
-            }
-            else
-                MessageBox.Show(czybłąd);
-
         }
 
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -215,6 +150,7 @@ namespace NaPo
             }
             WczytajPliki.WczytajDrogi(Mapa);
         }
+
         public double WywołajAlgorytmDijkastry(string text1, string text2)
         {
             Miasto tmp1 = null, tmp2 = null;
@@ -234,14 +170,6 @@ namespace NaPo
             TextBiletyDziecięce.Text = "0";
             TextBiletyStudenckie.Text = "0";
             TextBiletyEmeryckie.Text = "0";
-            TextImię.Text = "";
-            imię = null;
-            TextNazwisko.Text = "";
-            nazwisko = null;
-            TextTelefon.Text = "";
-            telefon = null;
-            TextEmail.Text = "";
-            email = null;
             Com1.Text = null;
             Com2.Text = null;
             DatePicker1.Text = null;
@@ -256,14 +184,6 @@ namespace NaPo
             if (Com1.Text == Com2.Text)
                 return błąd;
             if (DatePicker1==null || DatePicker1.Text == "")
-                return błąd;
-            if(imię==null || imię=="")
-                return błąd;
-            if (nazwisko == null || nazwisko=="")
-                return błąd;
-            if (telefon == null || telefon == "" || telefon.Length != 9 || telefon.Length != 11)
-                return błąd;
-            if (email == null || email=="")
                 return błąd;
             if (biletyNormalne + biletyDziecięce + biletyStudenckie + biletyEmeryta == 0)
                 return błąd;

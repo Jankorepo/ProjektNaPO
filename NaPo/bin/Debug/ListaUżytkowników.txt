@@ -1,0 +1,3 @@
+Adam,Kowal,721950234,adn@fdsij,Adam,haslo,12323132432,tak
+Adam,Kor,124,3453,Adam,haslo2,452,nie
+Michał,Lasko,123131,345231,123,haslo3,3453452,nie

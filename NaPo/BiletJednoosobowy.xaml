@@ -21,14 +21,6 @@
         <ComboBox x:Name="Com2" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Margin="217,108,0,0" Height="22" SelectionChanged="Com2_SelectionChanged"/>
         <ComboBox x:Name="Com3" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Margin="217,192,0,0" Height="22" SelectionChanged="Com3_SelectionChanged"/>
         <DatePicker x:Name="DatePicker1" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="217,154,0,0" Height="22" Width="100"/>
-        <TextBox x:Name="PoleTextowe11" IsEnabled="False" HorizontalAlignment="Left" Height="22" Margin="37,230,0,0" TextWrapping="Wrap" Text="Podaj imię" VerticalAlignment="Top" Width="350"/>
-        <TextBox x:Name="PoleTextowe12" IsEnabled="False" HorizontalAlignment="Left" Height="22" Margin="37,300,0,0" TextWrapping="Wrap" Text="Podaj numer telefonu" VerticalAlignment="Top" Width="350"/>
-        <TextBox x:Name="TextImię" HorizontalAlignment="Left" Height="22" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Margin="423,230,0,0" TextChanged="TextBox_TextChanged"/>
-        <TextBox x:Name="TextNazwisko" HorizontalAlignment="Left" Height="22" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Margin="423,266,0,0" RenderTransformOrigin="1.493,-4.645" TextChanged="TextBox_TextChanged_1"/>
-        <TextBox x:Name="PoleTextowe11_Copy" IsEnabled="False" HorizontalAlignment="Left" Height="22" Margin="37,266,0,0" TextWrapping="Wrap" Text="Podaj nazwisko" VerticalAlignment="Top" Width="350"/>
-        <TextBox x:Name="TextTelefon" HorizontalAlignment="Left" Height="22" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Margin="423,300,0,0" TextChanged="TextBox_TextChanged_2"/>
-        <TextBox x:Name="PoleTextowe12_Copy" IsEnabled="False" HorizontalAlignment="Left" Height="22" Margin="37,335,0,0" TextWrapping="Wrap" Text="Podaj email (prześlemy tam paragon)" VerticalAlignment="Top" Width="350"/>
-        <TextBox x:Name="TextEmail" HorizontalAlignment="Left" Height="22" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Margin="423,335,0,0" TextChanged="TextBox_TextChanged_3"/>
 
     </Grid>
 </Window>

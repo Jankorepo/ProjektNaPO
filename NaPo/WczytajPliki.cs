@@ -68,6 +68,29 @@ namespace NaPo
                 return false;
             }
         }
-        
+        public static List<Osoba> WczytajUżytkowników()
+        {
+            List < Osoba > Użytkownicy= new List<Osoba>();
+            string[] x = new string[8];
+            string[] Drogi = File.ReadAllLines("ListaUżytkowników.txt");
+            foreach (string danePołączenie in Drogi)
+            {
+                x = danePołączenie.Split(',');
+                Użytkownicy.Add(new Osoba(x[0],x[1],x[2],x[3],x[4],x[5],x[6],x[7]));
+            }
+            return Użytkownicy;
+        }
+        public static void DodajUżytkownika(Osoba nowyK)
+        {
+            string[] WszyscyUżytkownicy = File.ReadAllLines("ListaUżytkowników.txt");
+            using (StreamWriter writer = new StreamWriter("ListaUżytkowników.txt", false))
+            {
+                foreach(var użytkownik in WszyscyUżytkownicy)
+                    writer.WriteLine(użytkownik);
+                writer.WriteLine(nowyK.imię+","+nowyK.nazwisko + "," + nowyK.telefon + "," + nowyK.email
+                    + "," + nowyK.nazwaUżytkownika + "," + nowyK.hasło + "," + nowyK.PESEL + "," + nowyK.CzyAdmin);
+                writer.Close();
+            }
+        }
     }
 }

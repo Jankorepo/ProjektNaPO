@@ -54,3 +54,5 @@ C:\Users\jj\Documents\GitHub\ProjektNaPO\NaPo\obj\Debug\NaPo.Properties.Resource
 C:\Users\jj\Documents\GitHub\ProjektNaPO\NaPo\obj\Debug\NaPo.csproj.GenerateResource.cache
 C:\Users\jj\Documents\GitHub\ProjektNaPO\NaPo\obj\Debug\NaPo.exe
 C:\Users\jj\Documents\GitHub\ProjektNaPO\NaPo\obj\Debug\NaPo.pdb
+C:\Users\Adam\Desktop\ProjektNaPO\NaPo\obj\Debug\WybierzBilet.g.cs
+C:\Users\Adam\Desktop\ProjektNaPO\NaPo\obj\Debug\WybierzBilet.baml
