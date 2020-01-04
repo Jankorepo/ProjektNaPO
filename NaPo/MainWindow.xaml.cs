@@ -44,34 +44,13 @@ namespace NaPo
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            List<Osoba> Użytkownicy = WczytajPliki.WczytajUżytkowników();
-            try
-            {
-                Osoba CzyIstniejeTakiUżytkownik = Użytkownicy.Find(k => k.nazwaUżytkownika == TextLogNazwaUżytkownika.Text && k.hasło == TextLogHasło.Text);
-                string dlaczegToNieDziała = CzyIstniejeTakiUżytkownik.nazwaUżytkownika;
-                if (CzyIstniejeTakiUżytkownik.CzyAdmin=="nie")
-                {
-                    Hide();
-                    new WybierzBilet(CzyIstniejeTakiUżytkownik).ShowDialog();
-                    ShowDialog();
-                }
-                else
-                {
-                    Hide();
-                    new StronaAdmina().ShowDialog();
-                    ShowDialog();
-                }
-            }
-            catch(Exception)
-            {
-                MessageBox.Show("Błąd przy logowaniu, proszę spróbować jeszcze raz");
-            }
+            
             
         }
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-            Osoba nowyKlient = new Osoba(NoweImię, NoweNazwisko, NowyTelefon, NowyEmail, NowaNazwa, NoweHaslo, NowyPESEL, "nie");
-            WczytajPliki.DodajUżytkownika(nowyKlient);
+            
+            
         }
         private void TextLogNazwaUżytkownika_TextChanged(object sender, TextChangedEventArgs e)
         {

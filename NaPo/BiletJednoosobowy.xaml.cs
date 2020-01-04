@@ -74,12 +74,12 @@ namespace NaPo
 
         public void Odczytaj()
         {
-            foreach (var Miasto in WczytajPliki.WczytajMiasta(Mapa))
+            foreach (var Miasto in DziałaniaNaPlikach.WczytajMiasta(Mapa))
             {
                 Com1.Items.Add(Miasto);
                 Com2.Items.Add(Miasto);
             }
-            WczytajPliki.WczytajDrogi(Mapa);
+            DziałaniaNaPlikach.WczytajDrogi(Mapa);
         }
         public void OdświeżComboBox3(string text)
         {

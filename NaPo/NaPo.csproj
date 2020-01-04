@@ -71,7 +71,7 @@
     <Compile Include="StronaAdmina.xaml.cs">
       <DependentUpon>StronaAdmina.xaml</DependentUpon>
     </Compile>
-    <Compile Include="WczytajPliki.cs" />
+    <Compile Include="DziałaniaNaPlikach.cs" />
     <Compile Include="WybierzBilet.xaml.cs">
       <DependentUpon>WybierzBilet.xaml</DependentUpon>
     </Compile>

@@ -7,7 +7,7 @@ using System.IO;
 
 namespace NaPo
 {
-    abstract class WczytajPliki
+    abstract class DziałaniaNaPlikach
     {
         static public List<string> WczytajMiasta(GrafMiast Mapa)
         {
@@ -20,6 +20,8 @@ namespace NaPo
             }
             return Combo;
         }
+
+
         static public void WczytajDrogi(GrafMiast Mapa)
         {
             Miasto tmp1=null, tmp2=null;
@@ -40,6 +42,7 @@ namespace NaPo
                 tmp1 = tmp2 = null;
             }
         }
+
         public static string NumerParagonu()
         {
             string[] ParagonWartość = File.ReadAllLines("NrParagonu.txt");

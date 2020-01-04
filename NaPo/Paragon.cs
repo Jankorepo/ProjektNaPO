@@ -44,10 +44,10 @@ namespace NaPo
         }
         public void WywołajWyliczCenęBiletu()
         {
-            double CenaBiletuNormalnego1 = 0.45;
-            double CenaBiletuNormalnego2 = 0.30;
-            double CenaBiletuNormalnego3 = 0.20;
-            double CenaBiletuNormalnego4 = 0.18;
+            double CenaBiletuNormalnego1 = 0.5;
+            double CenaBiletuNormalnego2 = CenaBiletuNormalnego1 * 0.7;
+            double CenaBiletuNormalnego3 = CenaBiletuNormalnego2 * 0.7;
+            double CenaBiletuNormalnego4 = CenaBiletuNormalnego3* 0.9;
             if (this.odległośćOdCelu<=100)
                 WyliczCenęBiletu(CenaBiletuNormalnego1);
             else if (this.odległośćOdCelu > 100 && this.odległośćOdCelu <= 300)
@@ -68,7 +68,7 @@ namespace NaPo
         public string DrukujParagon1()
         {
             WywołajWyliczCenęBiletu();
-            this.numerParagonu=WczytajPliki.NumerParagonu();
+            this.numerParagonu=DziałaniaNaPlikach.NumerParagonu();
             
             string wynik = "Bilet imienny z \n" +
                 "-" + this.początekPodróży + "\ndo\n" +
@@ -85,7 +85,7 @@ namespace NaPo
                 "Ilość biletów emeryta/osoby niepełosprawnej: " + this.liczbaOsobZBiletemEmeryta + "\n" +
                 "Godzina kupna biletu: " + this.godzinaDrukuParagonu + "\n" +
                 "Numer transakcji: " + this.numerParagonu + "\n";
-            if (WczytajPliki.WypiszDoPliku(wynik, this.numerParagonu))
+            if (DziałaniaNaPlikach.WypiszDoPliku(wynik, this.numerParagonu))
                 return "Dziękujemy za zakup biletu!\nŻyczymy dobrej podróży\n\nTwój bilet został zapisany na pulpicie";
             else
                 return "Pojawił się błąd z zapisem biletu do pliku na pulpicie";
