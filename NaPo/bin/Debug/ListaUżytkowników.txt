@@ -2,3 +2,4 @@ Adam,Kowal,721950234,adn@fdsij,Adam,haslo,12323132432,tak
 Korwin,Majk,124567890,3453@g,Korwin,haslo2,45243,nie
 a,a,1,a,a,a,1,nie
 b,b,2,b,b,b,2,tak
+c,c,c,c,c,c,c,tak

@@ -24,7 +24,7 @@ namespace NaPo
         {
             foreach (var miasto in DziałaniaNaPlikach.WczytajMiasta())
             {
-
+                InitializeComponent();
                 ComDodajPoł1.Items.Add(miasto);
                 ComDodajPoł2.Items.Add(miasto);
                 ComUsuńPoł1.Items.Add(miasto);

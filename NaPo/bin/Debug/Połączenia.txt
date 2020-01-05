@@ -50,3 +50,4 @@ Zabrze,Rzeszów,277
 Katowice,Kraków,79
 Katowice,Wrocław,195
 Katowice,Zabrze,22
+Warszawa,Kraków,235
