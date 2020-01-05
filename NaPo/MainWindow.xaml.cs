@@ -44,13 +44,52 @@ namespace NaPo
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            
-            
+            List<Osoba> Użytkownicy = DziałaniaNaPlikach.WczytajUżytkowników();
+            try
+            {
+                Osoba CzyIstniejeTakiUżytkownik = Użytkownicy.Find(k => k.nazwaUżytkownika == TextLogNazwaUżytkownika.Text && k.hasło == TextLogHasło.Text);
+                string dlaczegToNieDziała = CzyIstniejeTakiUżytkownik.nazwaUżytkownika;
+                if (CzyIstniejeTakiUżytkownik.CzyAdmin == "nie")
+                {
+                    Hide();
+                    new WybierzBilet(CzyIstniejeTakiUżytkownik).ShowDialog();
+                    ShowDialog();
+                }
+                else
+                {
+                    Hide();
+                    new StronaAdmina().ShowDialog();
+                    ShowDialog();
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Błąd przy logowaniu, proszę spróbować jeszcze raz");
+            }
+
         }
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-            
-            
+            if (NoweImię == null || NoweImię == "" || NoweImię.Contains("Podaj"))
+                MessageBox.Show("Nieprawidłowe dane");
+            else if (NoweNazwisko == null || NoweNazwisko == "" || NoweNazwisko.Contains("Podaj") == true)
+                MessageBox.Show("Nieprawidłowe dane");
+            else if (NowyTelefon == null || NowyTelefon == "" || NowyTelefon.Contains("Podaj") == true)
+                MessageBox.Show("Nieprawidłowe dane");
+            else if (NowyEmail == null || NowyEmail == "" || NowyEmail.Contains("Podaj") == true)
+                MessageBox.Show("Nieprawidłowe dane");
+            else if (NowaNazwa == null || NowaNazwa == "" || NowaNazwa.Contains("Podaj") == true)
+                MessageBox.Show("Nieprawidłowe dane");
+            else if (NoweHaslo == null || NoweHaslo == "" || NoweHaslo.Contains("Podaj") == true)
+                MessageBox.Show("Nieprawidłowe dane");
+            else if (NowyPESEL == null || NowyPESEL == "" || NowyPESEL.Contains("Podaj") == true)
+                MessageBox.Show("Nieprawidłowe dane");
+            else
+            {
+                Osoba nowyKlient = new Osoba(NoweImię, NoweNazwisko, NowyTelefon, NowyEmail, NowaNazwa, NoweHaslo, NowyPESEL, "nie");
+                DziałaniaNaPlikach.DodajUżytkownika(nowyKlient);
+            }
+
         }
         private void TextLogNazwaUżytkownika_TextChanged(object sender, TextChangedEventArgs e)
         {

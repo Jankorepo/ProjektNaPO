@@ -95,5 +95,37 @@ namespace NaPo
                 writer.Close();
             }
         }
+        static public List<string> WczytajMiasta()
+        {
+            List<string> Combo = new List<string>();
+            string[] miasta = File.ReadAllLines("Miasta.txt");
+            foreach (var tmp in miasta)
+            {
+                Combo.Add(tmp);
+            }
+            return Combo;
+        }
+        static public void DodajMiasto(string miasto)
+        {
+            string[] miasta = File.ReadAllLines("Miasta.txt");
+            using (StreamWriter writer = new StreamWriter("Miasta.txt", false))
+            {
+                foreach (var miasteczko in miasta)
+                    writer.WriteLine(miasteczko);
+                writer.WriteLine(miasto);
+                writer.Close();
+            }
+        }
+        static public void DodajDrogę(string miasto1, string miasto2, string odległość)
+        {
+            string[] drogi = File.ReadAllLines("Połączenia.txt");
+            using (StreamWriter writer = new StreamWriter("Połączenia.txt", false))
+            {
+                foreach (var droga in drogi)
+                    writer.WriteLine(droga);
+                writer.WriteLine(miasto1 + "," + miasto2 + "," + odległość);
+                writer.Close();
+            }
+        }
     }
 }
