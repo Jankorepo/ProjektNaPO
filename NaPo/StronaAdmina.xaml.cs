@@ -40,7 +40,20 @@ namespace NaPo
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-
+            DziałaniaNaPlikach.DodajMiasto(TextNoweMiasto.Text);
+            ComDodajPoł1.Items.Clear();
+            ComDodajPoł2.Items.Clear();
+            ComUsuńPoł1.Items.Clear();
+            ComUsuńPoł1.Items.Clear();
+            ComUsuńMiastoIPołączenia.Items.Clear();
+            foreach (var miasto in DziałaniaNaPlikach.WczytajMiasta())
+            {
+                ComDodajPoł1.Items.Add(miasto);
+                ComDodajPoł2.Items.Add(miasto);
+                ComUsuńPoł1.Items.Add(miasto);
+                ComUsuńPoł2.Items.Add(miasto);
+                ComUsuńMiastoIPołączenia.Items.Add(miasto);
+            }
         }
 
         private void Klik1_Click(object sender, RoutedEventArgs e)
