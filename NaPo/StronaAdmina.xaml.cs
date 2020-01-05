@@ -22,8 +22,15 @@ namespace NaPo
     {
         public StronaAdmina()
         {
-            InitializeComponent();
+            foreach (var miasto in DziałaniaNaPlikach.WczytajMiasta())
+            {
 
+                ComDodajPoł1.Items.Add(miasto);
+                ComDodajPoł2.Items.Add(miasto);
+                ComUsuńPoł1.Items.Add(miasto);
+                ComUsuńPoł2.Items.Add(miasto);
+                ComUsuńMiastoIPołączenia.Items.Add(miasto);
+            }
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
