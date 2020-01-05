@@ -58,7 +58,9 @@ namespace NaPo
 
         private void Klik1_Click(object sender, RoutedEventArgs e)
         {
-
+            DziałaniaNaPlikach.DodajDrogę(ComDodajPoł1.Text, ComDodajPoł2.Text, TextOdległość.Text);
+            MessageBox.Show("Pomyślnie dodano nowe połączenie między miastem " + ComDodajPoł1.Text +
+                " oraz " + ComDodajPoł2.Text + " z odległością " + TextOdległość.Text + "km.");
         }
     }
 }
