@@ -51,6 +51,7 @@ namespace NaPo
                 string dlaczegToNieDziała = CzyIstniejeTakiUżytkownik.nazwaUżytkownika;
                 if (CzyIstniejeTakiUżytkownik.CzyAdmin == "nie")
                 {
+                    WyczyśćWszystkiePola();
                     Hide();
                     new WybierzBilet(CzyIstniejeTakiUżytkownik).ShowDialog();
                     ShowDialog();
@@ -70,24 +71,16 @@ namespace NaPo
         }
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-            if (NoweImię == null || NoweImię == "" || NoweImię.Contains("Podaj"))
-                MessageBox.Show("Nieprawidłowe dane");
-            else if (NoweNazwisko == null || NoweNazwisko == "" || NoweNazwisko.Contains("Podaj") == true)
-                MessageBox.Show("Nieprawidłowe dane");
-            else if (NowyTelefon == null || NowyTelefon == "" || NowyTelefon.Contains("Podaj") == true)
-                MessageBox.Show("Nieprawidłowe dane");
-            else if (NowyEmail == null || NowyEmail == "" || NowyEmail.Contains("Podaj") == true)
-                MessageBox.Show("Nieprawidłowe dane");
-            else if (NowaNazwa == null || NowaNazwa == "" || NowaNazwa.Contains("Podaj") == true)
-                MessageBox.Show("Nieprawidłowe dane");
-            else if (NoweHaslo == null || NoweHaslo == "" || NoweHaslo.Contains("Podaj") == true)
-                MessageBox.Show("Nieprawidłowe dane");
-            else if (NowyPESEL == null || NowyPESEL == "" || NowyPESEL.Contains("Podaj") == true)
-                MessageBox.Show("Nieprawidłowe dane");
-            else
+            if(SprawdźCzyPoprawneDane()== "brak błędu")
             {
                 Osoba nowyKlient = new Osoba(NoweImię, NoweNazwisko, NowyTelefon, NowyEmail, NowaNazwa, NoweHaslo, NowyPESEL, "nie");
                 DziałaniaNaPlikach.DodajUżytkownika(nowyKlient);
+                MessageBox.Show("Założono nowe konto\n Witaj " + NoweImię + " " + NoweNazwisko);
+
+            }
+            else
+            {
+                MessageBox.Show(SprawdźCzyPoprawneDane());
             }
 
         }
@@ -118,7 +111,7 @@ namespace NaPo
             {
                 try
                 {
-                    for (int i = 0; i < 10; i++)
+                    for (int i = 0; i < TextRejImię.Text.Length; i++)
                     {
                         if (TextRejImię.Text.Contains(Convert.ToString(i)))
                             Convert.ToInt32("a");
@@ -139,7 +132,7 @@ namespace NaPo
             {
                 try
                 {
-                    for (int i = 0; i < 10; i++)
+                    for (int i = 0; i < TextRejNazwisko.Text.Length; i++)
                     {
                         if (TextRejNazwisko.Text.Contains(Convert.ToString(i)))
                             Convert.ToInt32("a");
@@ -156,7 +149,21 @@ namespace NaPo
 
         private void TextRejTelefon_TextChanged(object sender, TextChangedEventArgs e)
         {
-            NowyTelefon = TextRejTelefon.Text;
+            if (TextRejTelefon.Text!= "Podaj swój nr telefonu" && TextRejTelefon.Text != "")
+                try
+                {
+                    for (int i = 0; i < TextRejTelefon.Text.Length; i++)
+                    {
+                        Convert.ToInt32(TextRejTelefon.Text);
+                        Convert.ToString(TextRejTelefon.Text);
+                    }
+                    NowyTelefon = TextRejTelefon.Text;
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("W tym miejscu mogą być tylko liczby!!!");
+                TextRejTelefon.Text = "";
+                }
         }
         private void TextRejEmail_TextChanged(object sender, TextChangedEventArgs e)
         {
@@ -164,7 +171,57 @@ namespace NaPo
         }
         private void TextRejPESEL_TextChanged(object sender, TextChangedEventArgs e)
         {
-            NowyPESEL = TextRejPESEL.Text;
+            
+            if (TextRejPESEL.Text != "Podaj swój PESEL" && TextRejPESEL.Text != "")
+            {
+                try
+                {
+                    for (int i = 0; i < TextRejPESEL.Text.Length; i++)
+                    {
+                        Convert.ToInt64(TextRejPESEL.Text);
+                        Convert.ToString(TextRejPESEL.Text);
+                    }
+                    NowyPESEL = TextRejPESEL.Text;
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("W tym miejscu mogą być tylko liczby!!!");
+                    TextRejPESEL.Text = "";
+                }
+            }
+                
+        }
+        public string SprawdźCzyPoprawneDane()
+        {
+
+            string błąd = "Podano błędne dane: ";
+            if (TextRejNazwaUżytkownika.Text == null || TextRejNazwaUżytkownika.Text == "" || TextRejNazwaUżytkownika.Text.Length<3)
+                return błąd;
+            if (TextRejHasło.Text == null || TextRejHasło.Text == "" || TextRejHasło.Text.Length<3)
+                return błąd;
+            if (TextRejImię.Text == null || TextRejImię.Text == "" || TextRejImię.Text.Length==1)
+                return błąd;
+            if (TextRejNazwisko.Text == null || TextRejNazwisko.Text == "" || TextRejNazwisko.Text.Length==1)
+                return błąd;
+            if (TextRejTelefon.Text == null || TextRejTelefon.Text == "" || TextRejTelefon.Text.Length!=9)
+                return błąd;
+            if (TextRejEmail.Text == null || TextRejEmail.Text == "" || !TextRejEmail.Text.Contains("@"))
+                return błąd;
+            if (TextRejPESEL.Text == null || TextRejPESEL.Text == "" || TextRejPESEL.Text.Length!=11)
+                return błąd;
+            return "brak błędu";
+        }
+        public void WyczyśćWszystkiePola()
+        {
+            TextLogNazwaUżytkownika.Text = "Podaj nazwę użytownika";
+            TextLogHasło.Text = "Podaj hasło";
+            TextRejNazwaUżytkownika.Text = "Podaj nazwę użytownika";
+            TextRejHasło.Text = "Podaj hasło";
+            TextRejImię.Text = "Podaj swoje imię";
+            TextRejNazwisko.Text = "Podaj swoje nazwisko";
+            TextRejTelefon.Text = "Podaj swój nr telefonu";
+            TextRejEmail.Text = "Podaj swój adres email";
+            TextRejPESEL.Text = "Podaj swój PESEL";
         }
     }
 }

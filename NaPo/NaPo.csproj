@@ -66,7 +66,7 @@
     <Compile Include="Miasto.cs" />
     <Compile Include="OdległościMiędzyMiastowe.cs" />
     <Compile Include="Osoba.cs" />
-    <Compile Include="Paragon.cs" />
+    <Compile Include="Bilet.cs" />
     <Compile Include="PołączenieMiast.cs" />
     <Compile Include="StronaAdmina.xaml.cs">
       <DependentUpon>StronaAdmina.xaml</DependentUpon>

@@ -24,22 +24,36 @@ namespace NaPo
         public Osoba TenKonkretnyKlient;
         GrafMiast Mapa = new GrafMiast();
         int biletyNormalne=0, biletyDziecięce=0, biletyStudenckie=0, biletyEmeryta = 0;
+        double CzyJednostronny = 1;
         public BiletWieloosobowy(Osoba TenKonkretnyKlient)
         {
             this.TenKonkretnyKlient = TenKonkretnyKlient;
             InitializeComponent();
             Odczytaj();
+            if (DziałaniaNaPlikach.SprawdźCzyWszystkiePlikiIstnieją() != "Wszystkie pliki istnieją")
+            {
+                MessageBox.Show(DziałaniaNaPlikach.SprawdźCzyWszystkiePlikiIstnieją());
+                this.Close();
+            }
+            Com3.Items.Add("Jednostronny");
+            Com3.Items.Add("W obie strony");
         }
         private void Klik1_Click(object sender, RoutedEventArgs e)
         {
             string czybłąd = SprawdźCzyPoprawneDane();
-
+            if (Com3.Text == "W obie strony")
+                CzyJednostronny = 1.8;
             if (czybłąd == "brak błędu")
             {
                 double OdległośćOdCelu = WywołajAlgorytmDijkastry(Com1.Text, Com2.Text);
-                Paragon par = new Paragon(Com1.Text, Com2.Text, TenKonkretnyKlient.imię, TenKonkretnyKlient.nazwisko, TenKonkretnyKlient.telefon,
-                    TenKonkretnyKlient.email, biletyNormalne, biletyDziecięce,biletyStudenckie, biletyEmeryta, OdległośćOdCelu, DatePicker1.Text);
-                MessageBox.Show(par.DrukujParagon1());
+                Bilet par = new Bilet(Com1.Text, Com2.Text, TenKonkretnyKlient.imię, TenKonkretnyKlient.nazwisko, TenKonkretnyKlient.telefon,
+                    TenKonkretnyKlient.email, biletyNormalne, biletyDziecięce,biletyStudenckie, biletyEmeryta, OdległośćOdCelu, DatePicker1.Text, CzyJednostronny);
+                if(biletyDziecięce+biletyStudenckie+biletyNormalne+biletyEmeryta>=5 && biletyDziecięce + biletyStudenckie + biletyNormalne + biletyEmeryta <20)
+                    MessageBox.Show(par.DrukujParagon1(0.10));
+                else if (biletyDziecięce + biletyStudenckie + biletyNormalne + biletyEmeryta >= 20)
+                    MessageBox.Show(par.DrukujParagon1(0.75));
+                else
+                    MessageBox.Show(par.DrukujParagon1(1));
                 WyczyśćWszystkiePola();
             }
             else
@@ -151,6 +165,11 @@ namespace NaPo
             DziałaniaNaPlikach.WczytajDrogi(Mapa);
         }
 
+        private void Com3_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+           
+        }
+
         public double WywołajAlgorytmDijkastry(string text1, string text2)
         {
             Miasto tmp1 = null, tmp2 = null;
@@ -172,14 +191,18 @@ namespace NaPo
             TextBiletyEmeryckie.Text = "0";
             Com1.Text = null;
             Com2.Text = null;
+            Com3.Text = null;
             DatePicker1.Text = null;
         }
         public string SprawdźCzyPoprawneDane()
         {
+
             string błąd = "Podano błędne dane: ";
             if (Com1.Text == null || Com1.Text=="")
                 return błąd;
             if (Com2.Text == null || Com2.Text == "")
+                return błąd;
+            if (Com3.Text == null || Com2.Text == "")
                 return błąd;
             if (Com1.Text == Com2.Text)
                 return błąd;

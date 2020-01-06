@@ -9,14 +9,34 @@ namespace NaPo
 {
     abstract class DziałaniaNaPlikach
     {
+        public static string SprawdźCzyWszystkiePlikiIstnieją()
+        {
+            if (!File.Exists("Miasta.txt"))
+                return "Uwaga!\n Plik Miasta.txt nie może zostać znaleziony";
+            if (!File.Exists("Połączenia.txt"))
+                return "Uwaga!\nPlik Połączenia.txt nie może zostać znaleziony";
+            if (!File.Exists("ListaUżytkowników.txt"))
+                return "Uwaga!\nPlik ListaUżytkowników.txt nie może zostać znaleziony";
+            if (!File.Exists("NrParagonu.txt"))
+                return "Uwaga!\nPlik NrParagonu.txt nie może zostać znaleziony";
+            return "Wszystkie pliki istnieją";
+        }
         static public List<string> WczytajMiasta(GrafMiast Mapa)
         {
             List<string> Combo = new List<string>();
-            string[] miasta = File.ReadAllLines("Miasta.txt");
-            foreach (var tmp in miasta)
+            try
             {
-                Combo.Add(tmp);
-                Mapa.Nodes.Add(new Miasto(tmp));
+                
+                string[] miasta = File.ReadAllLines("Miasta.txt");
+                foreach (var tmp in miasta)
+                {
+                    Combo.Add(tmp);
+                    Mapa.Nodes.Add(new Miasto(tmp));
+                }
+                
+            }
+            catch(Exception)
+            {
             }
             return Combo;
         }
@@ -59,7 +79,7 @@ namespace NaPo
             try
             {
                 string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-                using (StreamWriter writer = new StreamWriter(path + "/Paragon_" + numerParagonu + ".txt", false))
+                using (StreamWriter writer = new StreamWriter(path + "/Bilet_z_kodem_" + numerParagonu + ".txt", false))
                 {
                     writer.Write(wynik);
                     writer.Close();
@@ -95,16 +115,7 @@ namespace NaPo
                 writer.Close();
             }
         }
-        static public List<string> WczytajMiasta()
-        {
-            List<string> Combo = new List<string>();
-            string[] miasta = File.ReadAllLines("Miasta.txt");
-            foreach (var tmp in miasta)
-            {
-                Combo.Add(tmp);
-            }
-            return Combo;
-        }
+
         static public void DodajMiasto(string miasto)
         {
             string[] miasta = File.ReadAllLines("Miasta.txt");
@@ -124,6 +135,24 @@ namespace NaPo
                 foreach (var droga in drogi)
                     writer.WriteLine(droga);
                 writer.WriteLine(miasto1 + "," + miasto2 + "," + odległość);
+                writer.Close();
+            }
+        }
+        static public void UsuńDrogę(List<OdległościMiędzyMiastowe> lista)
+        {
+            using (StreamWriter writer = new StreamWriter("Połączenia.txt", false))
+            {
+                foreach (var droga in lista)
+                    writer.WriteLine(droga.start.wartość + "," + droga.koniec.wartość + "," + droga.waga);
+                writer.Close();
+            }
+        }
+        static public void UsuńMiasto(GrafMiast Mapa)
+        {
+            using (StreamWriter writer = new StreamWriter("Miasta.txt", false))
+            {
+                foreach (var miasteczko in Mapa.Nodes)
+                    writer.WriteLine(miasteczko.wartość);
                 writer.Close();
             }
         }

@@ -21,6 +21,8 @@
         <ComboBox x:Name="Com2" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Margin="217,108,0,0" Height="22" SelectionChanged="Com2_SelectionChanged"/>
         <ComboBox x:Name="Com3" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Margin="217,192,0,0" Height="22" SelectionChanged="Com3_SelectionChanged"/>
         <DatePicker x:Name="DatePicker1" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="217,154,0,0" Height="22" Width="100"/>
+        <TextBox HorizontalAlignment="Left" IsEnabled="False" Height="23" TextWrapping="Wrap" Text="Bilet w obie strony?" VerticalAlignment="Top" Width="151" Margin="37,228,0,0"/>
+        <ComboBox x:Name="Com4" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Margin="217,229,0,0" Height="22" SelectionChanged="Com4_SelectionChanged"/>
 
     </Grid>
 </Window>

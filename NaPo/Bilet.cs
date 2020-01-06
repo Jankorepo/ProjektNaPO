@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace NaPo
 {
-    class Paragon
+    class Bilet
     {
         public string początekPodróży;
         public string celPodróży;
@@ -24,9 +24,10 @@ namespace NaPo
         public double odległośćOdCelu = 0;
         public double cenaBiletu = 0;
         public string data;
-        public Paragon(string początekPodróży, string celPodróży, string imięKlienta, string nazwiskoKlienta,
+        public double CzyJednostronny;
+        public Bilet(string początekPodróży, string celPodróży, string imięKlienta, string nazwiskoKlienta,
             string nrTelefonuKlienta, string emailKlienta, int liczbaOsobZBiletemNormalnym, int liczbaOsobZBiletemDziecięcym,
-            int liczbaOsobZBiletemStudenckim, int liczbaOsobZBiletemEmeryta, double odległośćOdCelu, string data)
+            int liczbaOsobZBiletemStudenckim, int liczbaOsobZBiletemEmeryta, double odległośćOdCelu, string data, double CzyJednostronny)
         {
             this.początekPodróży = początekPodróży;
             this.celPodróży = celPodróży;
@@ -40,11 +41,12 @@ namespace NaPo
             this.liczbaOsobZBiletemEmeryta = liczbaOsobZBiletemEmeryta;
             this.odległośćOdCelu = odległośćOdCelu;
             this.data = data;
+            this.CzyJednostronny = CzyJednostronny;
 
         }
         public void WywołajWyliczCenęBiletu()
         {
-            double CenaBiletuNormalnego1 = 0.5;
+            double CenaBiletuNormalnego1 = 0.45;
             double CenaBiletuNormalnego2 = CenaBiletuNormalnego1 * 0.7;
             double CenaBiletuNormalnego3 = CenaBiletuNormalnego2 * 0.7;
             double CenaBiletuNormalnego4 = CenaBiletuNormalnego3* 0.9;
@@ -64,17 +66,18 @@ namespace NaPo
                     (this.liczbaOsobZBiletemStudenckim * Cena * 0.5) +
                     (this.liczbaOsobZBiletemEmeryta * Cena * 0.75)) * this.odległośćOdCelu;
         }
-        
-        public string DrukujParagon1()
+
+        public string DrukujParagon1(double zniżka)
         {
             WywołajWyliczCenęBiletu();
             this.numerParagonu=DziałaniaNaPlikach.NumerParagonu();
-            
+            string CzyWJednąStronę = (CzyJednostronny > 1.5) ? "W obie strony" : "W jedną stronę";
             string wynik = "Bilet imienny z \n" +
                 "-" + this.początekPodróży + "\ndo\n" +
                 "-" + this.celPodróży + "\nNa dzień\n" +
-                "-" +this.data+ "\n" + "Cena biletu\n" +
-                "-" + this.cenaBiletu + "zł\n\n" +
+                "-" +this.data+ "\n" + "Rodzaj przejazdu\n" +
+                "-" + CzyWJednąStronę + "\n" + "Cena biletu\n" +
+                "-" + (this.cenaBiletu*zniżka*CzyJednostronny) + "zł\n\n" +
                 "Imię: " + this.imięKlienta + "\n" +
                 "Nazwisko: " + this.nazwiskoKlienta + "\n" +
                 "Nr.Telefonu: " + this.nrTelefonuKlienta + "\n" +
