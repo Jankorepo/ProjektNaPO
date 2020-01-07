@@ -23,6 +23,8 @@
         <DatePicker x:Name="DatePicker1" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="217,154,0,0" Height="22" Width="100"/>
         <TextBox HorizontalAlignment="Left" IsEnabled="False" Height="23" TextWrapping="Wrap" Text="Bilet w obie strony?" VerticalAlignment="Top" Width="151" Margin="37,228,0,0"/>
         <ComboBox x:Name="Com4" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Margin="217,229,0,0" Height="22" SelectionChanged="Com4_SelectionChanged"/>
-
+        <Grid.Background>
+            <ImageBrush ImageSource="Zdjęcia/Autobus2.jpg" Stretch="UniformToFill"/>
+        </Grid.Background>
     </Grid>
 </Window>

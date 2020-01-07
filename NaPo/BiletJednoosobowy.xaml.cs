@@ -62,10 +62,10 @@ namespace NaPo
             if (czybłąd == "brak błędu")
             {
                 double OdległośćOdCelu = WywołajAlgorytmDijkastry(Com1.Text, Com2.Text);
-                Bilet par = new Bilet(Com1.Text, Com2.Text, TenKonkretnyKlient.imię, TenKonkretnyKlient.nazwisko, TenKonkretnyKlient.telefon,
+                Bilet bil = new Bilet(Com1.Text, Com2.Text, TenKonkretnyKlient.imię, TenKonkretnyKlient.nazwisko, TenKonkretnyKlient.telefon,
                     TenKonkretnyKlient.email, biletyNormalne, biletyDziecięce,biletyStudenckie, biletyEmeryta, OdległośćOdCelu, DatePicker1.Text,
                     CzyJednostronny);
-                MessageBox.Show(par.DrukujParagon1(1));
+                MessageBox.Show(bil.DrukujBilet(1));
                 WyczyśćWszystkiePola();
             }
             else
@@ -125,6 +125,7 @@ namespace NaPo
             Com1.Text = null;
             Com2.Text = null;
             Com3.Text = null;
+            Com4.Text = null;
             DatePicker1.Text = null;
         }
         public string SprawdźCzyPoprawneDane()

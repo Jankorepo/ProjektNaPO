@@ -79,11 +79,14 @@ namespace NaPo
             try
             {
                 string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-                using (StreamWriter writer = new StreamWriter(path + "/Bilet_z_kodem_" + numerParagonu + ".txt", false))
-                {
-                    writer.Write(wynik);
-                    writer.Close();
-                }
+                if(!Directory.CreateDirectory(path + "/Bilety").Exists)
+                Directory.CreateDirectory(path+"/Bilety");
+                    using (StreamWriter writer = new StreamWriter(path + "/Bilety/Bilet_z_kodem_" + numerParagonu + ".txt", false))
+                    {
+                        writer.Write(wynik);
+                        writer.Close();
+                    }
+
                 return true;
             }
             catch(Exception)

@@ -46,14 +46,14 @@ namespace NaPo
             if (czybłąd == "brak błędu")
             {
                 double OdległośćOdCelu = WywołajAlgorytmDijkastry(Com1.Text, Com2.Text);
-                Bilet par = new Bilet(Com1.Text, Com2.Text, TenKonkretnyKlient.imię, TenKonkretnyKlient.nazwisko, TenKonkretnyKlient.telefon,
+                Bilet bil = new Bilet(Com1.Text, Com2.Text, TenKonkretnyKlient.imię, TenKonkretnyKlient.nazwisko, TenKonkretnyKlient.telefon,
                     TenKonkretnyKlient.email, biletyNormalne, biletyDziecięce,biletyStudenckie, biletyEmeryta, OdległośćOdCelu, DatePicker1.Text, CzyJednostronny);
                 if(biletyDziecięce+biletyStudenckie+biletyNormalne+biletyEmeryta>=5 && biletyDziecięce + biletyStudenckie + biletyNormalne + biletyEmeryta <20)
-                    MessageBox.Show(par.DrukujParagon1(0.10));
+                    MessageBox.Show(bil.DrukujBilet(0.10));
                 else if (biletyDziecięce + biletyStudenckie + biletyNormalne + biletyEmeryta >= 20)
-                    MessageBox.Show(par.DrukujParagon1(0.75));
+                    MessageBox.Show(bil.DrukujBilet(0.75));
                 else
-                    MessageBox.Show(par.DrukujParagon1(1));
+                    MessageBox.Show(bil.DrukujBilet(1));
                 WyczyśćWszystkiePola();
             }
             else

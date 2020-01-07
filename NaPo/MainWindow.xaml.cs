@@ -73,9 +73,16 @@ namespace NaPo
         {
             if(SprawdźCzyPoprawneDane()== "brak błędu")
             {
-                Osoba nowyKlient = new Osoba(NoweImię, NoweNazwisko, NowyTelefon, NowyEmail, NowaNazwa, NoweHaslo, NowyPESEL, "nie");
-                DziałaniaNaPlikach.DodajUżytkownika(nowyKlient);
-                MessageBox.Show("Założono nowe konto\n Witaj " + NoweImię + " " + NoweNazwisko);
+                List<Osoba> Użytkownicy = DziałaniaNaPlikach.WczytajUżytkowników();
+                Osoba CzyIstniejeJużTakieKonto = Użytkownicy.Find(k => k.nazwaUżytkownika == TextRejNazwaUżytkownika.Text);
+                if (CzyIstniejeJużTakieKonto==null)
+                {
+                    Osoba nowyKlient = new Osoba(NoweImię, NoweNazwisko, NowyTelefon, NowyEmail, NowaNazwa, NoweHaslo, NowyPESEL, "nie");
+                    DziałaniaNaPlikach.DodajUżytkownika(nowyKlient);
+                    MessageBox.Show("Założono nowe konto\n Witaj " + NoweImię + " " + NoweNazwisko);
+                }
+                else
+                    MessageBox.Show("Uwaga!\n Ta nazwa użytkownika jest już zajęta");
 
             }
             else

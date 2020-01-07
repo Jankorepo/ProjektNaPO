@@ -25,15 +25,6 @@ namespace NaPo
             this.TenKonkretnyKlient = TenKonkretnyKlient;
             InitializeComponent();
         }
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            if (T1.Text == "password")
-            {
-                Hide();
-                new StronaAdmina().ShowDialog();
-                ShowDialog();
-            }
-        }
 
 
         private void Button_Click_1(object sender, RoutedEventArgs e)

@@ -19,7 +19,7 @@ namespace NaPo
         public int liczbaOsobZBiletemDziecięcym=0;
         public int liczbaOsobZBiletemStudenckim=0;
         public int liczbaOsobZBiletemEmeryta=0;
-        public string numerParagonu;
+        public string numerBiletu;
         public string godzinaDrukuParagonu=Convert.ToString(DateTime.Now);
         public double odległośćOdCelu = 0;
         public double cenaBiletu = 0;
@@ -67,12 +67,12 @@ namespace NaPo
                     (this.liczbaOsobZBiletemEmeryta * Cena * 0.75)) * this.odległośćOdCelu;
         }
 
-        public string DrukujParagon1(double zniżka)
+        public string DrukujBilet(double zniżka)
         {
             WywołajWyliczCenęBiletu();
-            this.numerParagonu=DziałaniaNaPlikach.NumerParagonu();
+            this.numerBiletu = DziałaniaNaPlikach.NumerParagonu();
             string CzyWJednąStronę = (CzyJednostronny > 1.5) ? "W obie strony" : "W jedną stronę";
-            string wynik = "Bilet imienny z \n" +
+            string BiletDoWydrukowania = "Bilet imienny z \n" +
                 "-" + this.początekPodróży + "\ndo\n" +
                 "-" + this.celPodróży + "\nNa dzień\n" +
                 "-" +this.data+ "\n" + "Rodzaj przejazdu\n" +
@@ -87,9 +87,9 @@ namespace NaPo
                 "Ilość biletów uczniowskich/studenckich: " + this.liczbaOsobZBiletemStudenckim + "\n" +
                 "Ilość biletów emeryta/osoby niepełosprawnej: " + this.liczbaOsobZBiletemEmeryta + "\n" +
                 "Godzina kupna biletu: " + this.godzinaDrukuParagonu + "\n" +
-                "Numer transakcji: " + this.numerParagonu + "\n";
-            if (DziałaniaNaPlikach.WypiszDoPliku(wynik, this.numerParagonu))
-                return "Dziękujemy za zakup biletu!\nŻyczymy dobrej podróży\n\nTwój bilet został zapisany na pulpicie";
+                "Numer transakcji: " + this.numerBiletu + "\n";
+            if (DziałaniaNaPlikach.WypiszDoPliku(BiletDoWydrukowania, this.numerBiletu))
+                return "Dziękujemy za zakup biletu!\nŻyczymy dobrej podróży\n\nTwój bilet i paragon został zapisany na pulpicie";
             else
                 return "Pojawił się błąd z zapisem biletu do pliku na pulpicie";
         }

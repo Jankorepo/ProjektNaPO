@@ -28,6 +28,9 @@
         <ComboBox x:Name="Com2" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Margin="217,96,0,0" Height="22" SelectionChanged="Com2_SelectionChanged"/>
         <TextBox HorizontalAlignment="Left" IsEnabled="False" Height="23" TextWrapping="Wrap" Text="Bilet w obie strony?" VerticalAlignment="Top" Width="151" Margin="37,343,0,0"/>
         <ComboBox x:Name="Com3" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Margin="217,344,0,0" Height="22" SelectionChanged="Com3_SelectionChanged"/>
+        <Grid.Background>
+            <ImageBrush ImageSource="Zdjęcia/Autobus2.jpg" Stretch="UniformToFill"/>
+        </Grid.Background>
     </Grid>
 </Window>
 

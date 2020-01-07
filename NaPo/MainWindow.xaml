@@ -24,10 +24,14 @@
         <TextBox x:Name="TextRejTelefon" HorizontalAlignment="Left" Height="18" TextWrapping="Wrap" Text="Podaj swój nr telefonu" VerticalAlignment="Top" Width="159" Margin="328.4,218,0,0" TextChanged="TextRejTelefon_TextChanged" Grid.Column="1"/>
         <TextBox x:Name="TextRejEmail" HorizontalAlignment="Left" Height="18" TextWrapping="Wrap" Text="Podaj swój adres email" VerticalAlignment="Top" Width="159" Margin="328.4,241,0,0" Grid.Column="1" TextChanged="TextRejEmail_TextChanged"/>
         <Button Content="Zarejestruj się" HorizontalAlignment="Left" VerticalAlignment="Top" Width="97" Margin="360.4,290,0,0" Grid.Column="1" Click="Button_Click_2"/>
-        <TextBox x:Name="TextRejPESEL" HorizontalAlignment="Left" Height="18" TextWrapping="Wrap" Text="Podaj swój PESEL" VerticalAlignment="Top" Width="159" Margin="328.4,264,0,0" Grid.Column="1" TextChanged="TextRejPESEL_TextChanged"/>
+        <TextBox x:Name="TextRejPESEL"  HorizontalAlignment="Left" Height="18" TextWrapping="Wrap" Text="Podaj swój PESEL" VerticalAlignment="Top" Width="159" Margin="328.4,264,0,0" Grid.Column="1" TextChanged="TextRejPESEL_TextChanged"/>
         <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Zaloguj się na swoje konto" VerticalAlignment="Top" Margin="125,100,0,0" Width="150" Grid.ColumnSpan="2"/>
         <TextBox x:Name="TextLogNazwaUżytkownika" HorizontalAlignment="Left" Height="18" TextWrapping="Wrap" Text="Podaj nazwę użytownika" VerticalAlignment="Top" Width="159" Margin="125,126,0,0" TextChanged="TextLogNazwaUżytkownika_TextChanged" Grid.ColumnSpan="2"/>
         <TextBox x:Name="TextLogHasło" HorizontalAlignment="Left" Height="18" TextWrapping="Wrap" Text="Podaj hasło" VerticalAlignment="Top" Width="159" Margin="125,153,0,0" TextChanged="TextLogHasło_TextChanged" Grid.ColumnSpan="2"/>
         <Button Content="Zaloguj się" HorizontalAlignment="Left" VerticalAlignment="Top" Width="97" Margin="2.4,194,0,0" Click="Button_Click_1" Grid.Column="1"/>
+        <Grid.Background>
+            <ImageBrush ImageSource="Zdjęcia/Autobus1.jpg" Stretch="UniformToFill"/>
+        </Grid.Background>
     </Grid>
+
 </Window>

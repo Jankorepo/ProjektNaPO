@@ -7,16 +7,18 @@
         xmlns:local="clr-namespace:NaPo"
         mc:Ignorable="d"
         Title="WybierzBilet" Height="450" Width="800">
-    <Grid>
+
         <Grid>
             <TextBox HorizontalAlignment="Left" IsEnabled="False" Height="56" TextWrapping="Wrap" Text="    Witaj w firmie ExpresBus!" VerticalAlignment="Top" Width="344" Margin="225,28,0,0" FontSize="24"/>
             <Button Content="Przejdź do kupna&#xA; biletu grupowego&#xA;(powyżej 5 osób  &#xA;  10%rabatu,&#xD;&#xA; powyżej 20 osób 25% rabatu)" HorizontalAlignment="Left" VerticalAlignment="Top" Width="210" Margin="449,133,0,0" Height="109" Click="Button_Click_2" FontSize="14"/>
             <Button Content="Przejdź do kupna biletu&#xD;&#xA; jednoosobowego" HorizontalAlignment="Left" VerticalAlignment="Top" Width="165" Margin="136,133,0,0" Height="109" Click="Button_Click_1" FontSize="14"/>
             <Button Content="O nas" HorizontalAlignment="Left" Margin="653,305,0,0" VerticalAlignment="Top" Width="120" Height="43" Click="Button_Click_4"/>
             <Button Content="Kontakt" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="653,353,0,0" Height="46" Click="Button_Click_5"/>
-            <TextBox HorizontalAlignment="Left" Name="T1" Height="36" TextWrapping="Wrap" Text="Jesteś ADMIENEM? Wpisz password" VerticalAlignment="Top" Width="158" Margin="32,318,0,0" TextChanged="TextBox_TextChanged"/>
-            <Button Content="Sprawdź dokładne&#xD;&#xA;     ceny biletów"  HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="653,251,0,0" Height="49" Click="Button_Click_3"/>
+        <Button Content="Sprawdź dokładne&#xD;&#xA;     ceny biletów"  HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="653,251,0,0" Height="49" Click="Button_Click_3"/>
             <Button Content="Wyloguj" HorizontalAlignment="Left" VerticalAlignment="Top" Width="48" Margin="693,19,0,0" Height="47" Click="Button_Click"/>
+        <Grid.Background>
+            <ImageBrush ImageSource="Zdjęcia/Autobus1.jpg" Stretch="UniformToFill"/>
+        </Grid.Background>
         </Grid>
-    </Grid>
+
 </Window>
