@@ -5,7 +5,9 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:NaPo"
+        WindowStartupLocation="CenterScreen"
         mc:Ignorable="d"
+
         Title="Strona Admina" Height="450" Width="800">
     <Grid>
         <Button x:Name="Klik1" Content="Dodaj nowe połączenie między miastem&#xD;&#xA; pierwszym i drugim.&#xD;&#xA;W trzecim oknie wpisz odległość&#xD;&#xA; między nimi" HorizontalAlignment="Left" Margin="118,107,0,0" VerticalAlignment="Top" Width="240" Height="74" RenderTransformOrigin="0.495,0.519" Click="Klik1_Click"/>
@@ -21,6 +23,9 @@
         <ComboBox x:Name="ComUsuńPoł2" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="400,245,0,0"/>
         <ComboBox x:Name="ComUsuńMiastoIPołączenia" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="400,278,0,0"/>
         <TextBox x:Name="TextNoweMiasto" HorizontalAlignment="Left" Height="21" Margin="400,81,0,0" TextWrapping="Wrap" Text="Nazwa miasta" VerticalAlignment="Top" Width="193" TextChanged="TextNoweMiasto_TextChanged"/>
+        <Button Content="Usuń użytkownika. &#xD;&#xA;Podaj nazwę użytkownika i hasło" HorizontalAlignment="Left" VerticalAlignment="Top" Width="240" Margin="118,321,0,0" Height="45" Click="Button_Click_4"/>
+        <TextBox x:Name="TextUsuńNazwęUżytkownika" HorizontalAlignment="Left" Height="22" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Margin="400,321,0,0"/>
+        <TextBox x:Name="TextUsuńHasłoUżytkownika" HorizontalAlignment="Left" Height="20" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Margin="400,346,0,0"/>
     </Grid>
 </Window>
 

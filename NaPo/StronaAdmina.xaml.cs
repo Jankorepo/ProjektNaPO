@@ -159,5 +159,20 @@ namespace NaPo
             }
         }
 
+        private void Button_Click_4(object sender, RoutedEventArgs e)
+        {
+            List<Osoba> PełnaListaOsob = DziałaniaNaPlikach.WczytajUżytkowników();
+            Osoba KlientDoUsunięcia = PełnaListaOsob.Find(k => k.nazwaUżytkownika == TextUsuńNazwęUżytkownika.Text &&
+            k.hasło == TextUsuńHasłoUżytkownika.Text);
+            if (KlientDoUsunięcia != null)
+            {
+                PełnaListaOsob.Remove(KlientDoUsunięcia);
+                DziałaniaNaPlikach.UsuńUżytkownika(PełnaListaOsob);
+                MessageBox.Show("Poprawnie usunięto klienta " + KlientDoUsunięcia.imię + " " + KlientDoUsunięcia.nazwisko +
+                    " z nazwą użytkownika " + KlientDoUsunięcia.nazwaUżytkownika);
+            }
+            else
+                MessageBox.Show("Nie ma takiego klienta!");
+        }
     }
 }

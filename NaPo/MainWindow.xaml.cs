@@ -77,7 +77,11 @@ namespace NaPo
                 Osoba CzyIstniejeJużTakieKonto = Użytkownicy.Find(k => k.nazwaUżytkownika == TextRejNazwaUżytkownika.Text);
                 if (CzyIstniejeJużTakieKonto==null)
                 {
-                    Osoba nowyKlient = new Osoba(NoweImię, NoweNazwisko, NowyTelefon, NowyEmail, NowaNazwa, NoweHaslo, NowyPESEL, "nie");
+                    Osoba nowyKlient;
+                    if(NowaNazwa.Contains("Admin")|| NowaNazwa.Contains("admin"))
+                        nowyKlient=new Osoba(NoweImię, NoweNazwisko, NowyTelefon, NowyEmail, NowaNazwa, NoweHaslo, NowyPESEL, "tak");
+                    else
+                        nowyKlient =new Osoba(NoweImię, NoweNazwisko, NowyTelefon, NowyEmail, NowaNazwa, NoweHaslo, NowyPESEL, "nie");
                     DziałaniaNaPlikach.DodajUżytkownika(nowyKlient);
                     MessageBox.Show("Założono nowe konto\n Witaj " + NoweImię + " " + NoweNazwisko);
                 }

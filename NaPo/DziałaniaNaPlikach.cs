@@ -159,5 +159,15 @@ namespace NaPo
                 writer.Close();
             }
         }
+        static public void UsuńUżytkownika(List<Osoba> ListaZUsuniętąOsobą)
+        {
+            using (StreamWriter writer = new StreamWriter("ListaUżytkowników.txt", false))
+            {
+                foreach (var DanaOsoba in ListaZUsuniętąOsobą)
+                    writer.WriteLine(DanaOsoba.imię+","+DanaOsoba.nazwisko+","+DanaOsoba.telefon+","+DanaOsoba.email+","+DanaOsoba.nazwaUżytkownika+
+                        ","+DanaOsoba.hasło+","+DanaOsoba.PESEL+",nie");
+                writer.Close();
+            }
+        }
     }
 }
