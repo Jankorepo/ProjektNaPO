@@ -58,6 +58,7 @@ namespace NaPo
                 }
                 else
                 {
+                    WyczyśćWszystkiePola();
                     Hide();
                     new StronaAdmina().ShowDialog();
                     ShowDialog();
@@ -84,6 +85,7 @@ namespace NaPo
                         nowyKlient =new Osoba(NoweImię, NoweNazwisko, NowyTelefon, NowyEmail, NowaNazwa, NoweHaslo, NowyPESEL, "nie");
                     DziałaniaNaPlikach.DodajUżytkownika(nowyKlient);
                     MessageBox.Show("Założono nowe konto\n Witaj " + NoweImię + " " + NoweNazwisko);
+                    WyczyśćWszystkiePola();
                 }
                 else
                     MessageBox.Show("Uwaga!\n Ta nazwa użytkownika jest już zajęta");
@@ -122,16 +124,16 @@ namespace NaPo
             {
                 try
                 {
-                    for (int i = 0; i < TextRejImię.Text.Length; i++)
+                    foreach (var litera in TextRejImię.Text)
                     {
-                        if (TextRejImię.Text.Contains(Convert.ToString(i)))
+                        if (!((litera <= 'z' && litera >= 'a') || (litera <= 'Z' && litera >= 'A') || litera==' ' || litera == 'ę'))
                             Convert.ToInt32("a");
                     }
                     NoweImię = TextRejImię.Text;
                 }
                 catch (Exception)
                 {
-                    MessageBox.Show("W tym miejscu mogą być tylko litery!!!");
+                    MessageBox.Show("W tym miejscu mogą być tylko zwykłe litery!!!");
                     TextRejImię.Text = "";
                 }
             }
@@ -143,16 +145,16 @@ namespace NaPo
             {
                 try
                 {
-                    for (int i = 0; i < TextRejNazwisko.Text.Length; i++)
+                    foreach (var litera in TextRejNazwisko.Text)
                     {
-                        if (TextRejNazwisko.Text.Contains(Convert.ToString(i)))
+                        if (!((litera <= 'z' && litera >= 'a') || (litera <= 'Z' && litera >= 'A') || litera == ' '))
                             Convert.ToInt32("a");
                     }
                     NoweNazwisko = TextRejNazwisko.Text;
                 }
                 catch (Exception)
                 {
-                    MessageBox.Show("W tym miejscu mogą być tylko litery!!!");
+                    MessageBox.Show("W tym miejscu mogą być tylko zwykłe litery!!!");
                     TextRejNazwisko.Text = "";
                 }
             }

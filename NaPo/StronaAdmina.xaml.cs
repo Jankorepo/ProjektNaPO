@@ -162,17 +162,31 @@ namespace NaPo
         private void Button_Click_4(object sender, RoutedEventArgs e)
         {
             List<Osoba> PełnaListaOsob = DziałaniaNaPlikach.WczytajUżytkowników();
-            Osoba KlientDoUsunięcia = PełnaListaOsob.Find(k => k.nazwaUżytkownika == TextUsuńNazwęUżytkownika.Text &&
-            k.hasło == TextUsuńHasłoUżytkownika.Text);
+            Osoba KlientDoUsunięcia = PełnaListaOsob.Find(k => k.nazwaUżytkownika == TextUsuńNazwęUżytkownika.Text);
             if (KlientDoUsunięcia != null)
             {
                 PełnaListaOsob.Remove(KlientDoUsunięcia);
-                DziałaniaNaPlikach.UsuńUżytkownika(PełnaListaOsob);
+                DziałaniaNaPlikach.AktualizujListęUżytkowników(PełnaListaOsob);
                 MessageBox.Show("Poprawnie usunięto klienta " + KlientDoUsunięcia.imię + " " + KlientDoUsunięcia.nazwisko +
                     " z nazwą użytkownika " + KlientDoUsunięcia.nazwaUżytkownika);
             }
             else
-                MessageBox.Show("Nie ma takiego klienta!");
+                MessageBox.Show("Nie ma takiego użytkownika!");
+        }
+
+        private void Button_Click_5(object sender, RoutedEventArgs e)
+        {
+            List<Osoba> PełnaListaOsob = DziałaniaNaPlikach.WczytajUżytkowników();
+            Osoba NowyAdmin = PełnaListaOsob.Find(k => k.nazwaUżytkownika == TextDajAdmina.Text);
+            if (NowyAdmin!=null)
+            {
+                NowyAdmin.CzyAdmin = "tak";
+                DziałaniaNaPlikach.AktualizujListęUżytkowników(PełnaListaOsob);
+                MessageBox.Show("Poprawnie nadano uprawnienia administratora użytkownikowi " + NowyAdmin.imię + " " + NowyAdmin.nazwisko +
+                        " z nazwą użytkownika " + NowyAdmin.nazwaUżytkownika);
+            }
+            else
+                MessageBox.Show("Nie ma takiego użytkownika!");
         }
     }
 }

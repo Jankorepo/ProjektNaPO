@@ -86,7 +86,14 @@ namespace NaPo
                         writer.Write(wynik);
                         writer.Close();
                     }
-
+                string path2 = "C:/Users/Adam/Desktop/ProjektNaPO/NaPo/bin/Debug/KopieBiletów";
+                if (!Directory.CreateDirectory(path2).Exists)
+                    Directory.CreateDirectory(path2);
+                using (StreamWriter writer = new StreamWriter(path2+"/Bilet_z_kodem_" + numerParagonu + ".txt", false))
+                {
+                    writer.Write(wynik);
+                    writer.Close();
+                }
                 return true;
             }
             catch(Exception)
@@ -159,13 +166,13 @@ namespace NaPo
                 writer.Close();
             }
         }
-        static public void UsuńUżytkownika(List<Osoba> ListaZUsuniętąOsobą)
+        static public void AktualizujListęUżytkowników(List<Osoba> AktualnaLista)
         {
             using (StreamWriter writer = new StreamWriter("ListaUżytkowników.txt", false))
             {
-                foreach (var DanaOsoba in ListaZUsuniętąOsobą)
+                foreach (var DanaOsoba in AktualnaLista)
                     writer.WriteLine(DanaOsoba.imię+","+DanaOsoba.nazwisko+","+DanaOsoba.telefon+","+DanaOsoba.email+","+DanaOsoba.nazwaUżytkownika+
-                        ","+DanaOsoba.hasło+","+DanaOsoba.PESEL+",nie");
+                        ","+DanaOsoba.hasło+","+DanaOsoba.PESEL+","+DanaOsoba.CzyAdmin);
                 writer.Close();
             }
         }
