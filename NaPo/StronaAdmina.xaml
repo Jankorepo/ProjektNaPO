@@ -10,23 +10,35 @@
 
         Title="Strona Admina" Height="450" Width="800">
     <Grid>
-        <Button x:Name="Klik1" Content="Dodaj nowe połączenie między miastem&#xD;&#xA; pierwszym i drugim.&#xD;&#xA;W trzecim oknie wpisz odległość&#xD;&#xA; między nimi" HorizontalAlignment="Left" Margin="118,107,0,0" VerticalAlignment="Top" Width="240" Height="74" RenderTransformOrigin="0.495,0.519" Click="Klik1_Click"/>
+        <Button x:Name="Klik1" Content="Dodaj nowe połączenie między miastem&#xD;&#xA; pierwszym i drugim.&#xD;&#xA;W trzecim oknie wpisz odległość&#xD;&#xA; między nimi" HorizontalAlignment="Left" Margin="89,156,0,0" VerticalAlignment="Top" Width="240" Height="74" RenderTransformOrigin="0.495,0.519" Click="Klik1_Click"/>
         <Button Content="Zamknij" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Margin="713,20,0,0" Height="50" Click="Button_Click"/>
-        <TextBox x:Name="TextOdległość" HorizontalAlignment="Left" Height="21" Margin="400,160,0,0" TextWrapping="Wrap" Text="Odległość miedzy tymi miastami" VerticalAlignment="Top" Width="193" TextChanged="TextOdległość_TextChanged"/>
+        <TextBox x:Name="TextOdległość" HorizontalAlignment="Left" Height="21" Margin="460,209,0,0" TextWrapping="Wrap" Text="Odległość miedzy tymi miastami" VerticalAlignment="Top" Width="193" TextChanged="TextOdległość_TextChanged"/>
         <TextBox x:Name="PoleTextowe7" HorizontalAlignment="Left" Height="42" Margin="278,10,0,0" TextWrapping="Wrap" Text="Witaj Administratorze" VerticalAlignment="Top" Width="254" FontSize="22"/>
-        <Button Content="Dodaj nowe miasto" HorizontalAlignment="Left" VerticalAlignment="Top" Width="240" Margin="118,78,0,0" Height="22" Click="Button_Click_1"/>
-        <Button Content="Usuń miasto i wszystkie jego połączenia" HorizontalAlignment="Left" VerticalAlignment="Top" Width="240" Margin="118,278,0,0" Height="22" Click="Button_Click_3"/>
-        <Button Content="Usuń połączenie miedzy miastami" HorizontalAlignment="Left" VerticalAlignment="Top" Width="240" Margin="118,218,0,0" Height="49" Click="Button_Click_2"/>
-        <ComboBox x:Name="ComDodajPoł1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="400,107,0,0"/>
-        <ComboBox x:Name="ComDodajPoł2" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="400,133,0,0"/>
-        <ComboBox x:Name="ComUsuńPoł1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="400,218,0,0"/>
-        <ComboBox x:Name="ComUsuńPoł2" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="400,245,0,0"/>
-        <ComboBox x:Name="ComUsuńMiastoIPołączenia" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="400,278,0,0"/>
-        <TextBox x:Name="TextNoweMiasto" HorizontalAlignment="Left" Height="21" Margin="400,81,0,0" TextWrapping="Wrap" Text="Nazwa miasta" VerticalAlignment="Top" Width="193" TextChanged="TextNoweMiasto_TextChanged"/>
-        <Button Content="Usuń klienta, &#xA;Podaj jego nazwę użytkownika" HorizontalAlignment="Left" VerticalAlignment="Top" Width="240" Margin="118,321,0,0" Height="45" Click="Button_Click_4"/>
-        <TextBox x:Name="TextUsuńNazwęUżytkownika" HorizontalAlignment="Left" Height="22" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Margin="400,330,0,0"/>
-        <Button Content="Daj użytkownikowi prawa administratora" HorizontalAlignment="Left" VerticalAlignment="Top" Width="240" Margin="118,379,0,0" Height="40" Click="Button_Click_5"/>
-        <TextBox x:Name="TextDajAdmina" HorizontalAlignment="Left" Height="22" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Margin="400,390,0,0"/>
+        <Button Content="Dodaj nowe miasto" HorizontalAlignment="Left" VerticalAlignment="Top" Width="240" Margin="87,111,0,0" Height="22" Click="Button_Click_1" RenderTransformOrigin="0.5,0.5">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0.018"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+        </Button>
+        <Button Content="Usuń miasto i wszystkie jego połączenia" HorizontalAlignment="Left" VerticalAlignment="Top" Width="240" Margin="89,303,0,0" Height="22" Click="Button_Click_3"/>
+        <Button Content="Usuń połączenie miedzy miastami" HorizontalAlignment="Left" VerticalAlignment="Top" Width="240" Margin="89,245,0,0" Height="49" Click="Button_Click_2"/>
+        <ComboBox x:Name="ComDodajPoł1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="460,155,0,0"/>
+        <ComboBox x:Name="ComDodajPoł2" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="460,182,0,0"/>
+        <ComboBox x:Name="ComUsuńPoł1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="460,245,0,0"/>
+        <ComboBox x:Name="ComUsuńPoł2" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="460,272,0,0"/>
+        <ComboBox x:Name="ComUsuńMiastoIPołączenia" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="460,303,0,0"/>
+        <TextBox x:Name="TextNoweMiasto" HorizontalAlignment="Left" Height="21" Margin="460,113,0,0" TextWrapping="Wrap" Text="Nazwa miasta" VerticalAlignment="Top" Width="193" TextChanged="TextNoweMiasto_TextChanged"/>
+        <Button Content="Usuń klienta, &#xA;Podaj jego nazwę użytkownika" HorizontalAlignment="Left" VerticalAlignment="Top" Width="240" Margin="89,330,0,0" Height="45" Click="Button_Click_4"/>
+        <TextBox x:Name="TextUsuńNazwęUżytkownika" HorizontalAlignment="Left" Height="22" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Margin="460,343,0,0"/>
+        <Button Content="Daj użytkownikowi prawa administratora" HorizontalAlignment="Left" VerticalAlignment="Top" Width="240" Margin="89,386,0,0" Height="40" Click="Button_Click_5"/>
+        <TextBox x:Name="TextDajAdmina" HorizontalAlignment="Left" Height="22" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Margin="460,395,0,0"/>
+        <Grid.Background>
+            <ImageBrush ImageSource="Zdjęcia/Admin.jpg" Stretch="UniformToFill"/>
+        </Grid.Background>
     </Grid>
 </Window>
 
