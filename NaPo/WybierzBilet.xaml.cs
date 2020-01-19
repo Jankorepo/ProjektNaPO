@@ -44,27 +44,30 @@ namespace NaPo
         private void Button_Click_3(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("Cena biletu(do 100km):" +
-                "\n Normalny: 1,60zł/km" +
-                "\n Dziecięcy(do lat 3): 0.40zł/km(-75%)" +
-                "\n Szkolny/studencki: 0,80zł/km(-50%)" +
-                "\n Emerytalny/osoby niepełosprawnej: 1,20zł/km(-25%)" +
+                "\n Normalny: 0,45zł/km" +
+                "\n Dziecięcy(do lat 3): 0,11zł/km(-75%)" +
+                "\n Szkolny/studencki: 0,22zł/km(-50%)" +
+                "\n Emerytalny/osoby niepełosprawnej: 0,34zł/km(-25%)" +
 
                 "\n\n Cena biletu(powyżej 100km):" +
-                "\n Normalny: 1,00zł/km" +
-                "\n Dziecięcy(do lat 3): 0,25zł/km(-75%)" +
-                "\n Szkolny/studencki: 0,50zł/km(-50%)" +
-                "\n Emerytalny/osoby niepełosprawnej: 0,75zł/km(-25%)" +
+                "\n Normalny: 0,20zł/km" +
+                "\n Dziecięcy(do lat 3): 0,05zł/km(-75%)" +
+                "\n Szkolny/studencki: 0,10zł/km(-50%)" +
+                "\n Emerytalny/osoby niepełosprawnej: 0,15zł/km(-25%)" +
 
                 "\n\n Cena biletu(powyżej 500km):" +
-                "\n Normalny: 0,60zł/km" +
-                "\n Dziecięcy(do lat 3): 0.15zł/km(-75%)" +
-                "\n Szkolny/studencki: 0,30zł/km(-50%)" +
-                "\n Emerytalny/osoby niepełosprawnej: 0,45zł/km(-25%)");
+                "\n Normalny: 0,18zł/km" +
+                "\n Dziecięcy(do lat 3): 0,04zł/km(-75%)" +
+                "\n Szkolny/studencki: 0,09zł/km(-50%)" +
+                "\n Emerytalny/osoby niepełosprawnej: 0,13zł/km(-25%)");
         }
 
         private void Button_Click_4(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Jesteśmy firmą bez celu i doświadczenia, a nawet posiadamy flotę busów z lat 60");
+            MessageBox.Show("Jesteśmy prężnie rozwijającą się firmą, która swoje pierwsze kroki stawiała w grudniu 2019 roku. " +
+                "Bogata flota pojazdów oraz dynamicznie rozwijający się zespół pozwoliły nam dotrzeć do milionów klientów. " +
+                "Firma jest zarządzana przez szefostwo: Adama Jankowiaka oraz Jakuba Jabłońskiego. " +
+                "Naszym celem jest dalszy rozwój oraz dotarcie do klientów poza granicami Polski.");
         }
 
         private void Button_Click_5(object sender, RoutedEventArgs e)

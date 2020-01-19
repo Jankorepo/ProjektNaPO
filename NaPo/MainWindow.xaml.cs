@@ -26,7 +26,10 @@ namespace NaPo
 
         private void Button_Click_4(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Jesteśmy firmą bez celu i doświadczenia, a nawet posiadamy flotę busów z lat 60");
+            MessageBox.Show("Jesteśmy prężnie rozwijającą się firmą, która swoje pierwsze kroki stawiała w grudniu 2019 roku. " +
+                "Bogata flota pojazdów oraz dynamicznie rozwijający się zespół pozwoliły nam dotrzeć do milionów klientów. " +
+                "Firma jest zarządzana przez szefostwo: Adama Jankowiaka oraz Jakuba Jabłońskiego. " +
+                "Naszym celem jest dalszy rozwój oraz dotarcie do klientów poza granicami Polski.");
         }
 
         private void Button_Click_5(object sender, RoutedEventArgs e)
