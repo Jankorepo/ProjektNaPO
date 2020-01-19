@@ -49,13 +49,13 @@ namespace NaPo
                 "\n Szkolny/studencki: 0,22zł/km(-50%)" +
                 "\n Emerytalny/osoby niepełosprawnej: 0,34zł/km(-25%)" +
 
-                "\n\n Cena biletu(do 300km):" +
+                "\n\n Cena biletu(od 100km do 300km):" +
                 "\n Normalny: 0,30zł/km" +
                 "\n Dziecięcy(do lat 3): 0,07zł/km(-75%)" +
                 "\n Szkolny/studencki: 0,15zł/km(-50%)" +
                 "\n Emerytalny/osoby niepełosprawnej: 0,23zł/km(-25%)" +
 
-                "\n\n Cena biletu(do 500km):" +
+                "\n\n Cena biletu(od 300km do 500km):" +
                 "\n Normalny: 0,20zł/km" +
                 "\n Dziecięcy(do lat 3): 0,05zł/km(-75%)" +
                 "\n Szkolny/studencki: 0,10zł/km(-50%)" +
